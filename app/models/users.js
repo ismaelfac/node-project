@@ -14,6 +14,9 @@ const UsersSchema = new mongoose.Schema(
             type: String,
             unique: true,
             index: true
+        },
+        token: {
+            type: String,
         }
     },
     {
