@@ -1,20 +1,41 @@
-const index = () => {
+const { httpError } = require('../helpers/handleError');
+const userModel  = require('../models/users')
 
+const index = async (req, res) => {
+    try {
+        const ListAll = await userModel.find({})
+        res.send({ data: ListAll })
+    } catch (e) {
+        httpError(res, e)
+    } 
 }
 
-const getItem = () => {
+const getItem = async (req, res) => {
+    try {
+        const ListAll = await userModel.find({})
+        res.send({ data: ListAll })
+    } catch (e) {
+        httpError(res, e)
+    } 
+}
+
+const createdItem = async (req, res) => {
+    try {
+        const { name, age, email } = req.body;
+        const resDetail = await userModel.create({
+            name, age, email
+        })
+        res.send({ data: resDetail })
+    } catch (e) {
+        httpError(res, e)
+    }
+}
+
+const updatedItem = (req, res) => {
     
 }
 
-const createdItem = () => {
-    
-}
-
-const updatedItem = () => {
-    
-}
-
-const deletedItem = () => {
+const deletedItem = (req, res) => {
     
 }
 
