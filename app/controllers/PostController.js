@@ -10,6 +10,14 @@ const index = async (req, res) => {
         httpError(res, e)
     } 
 }
+const getItem = async (req, res) => {
+    try {
+        const resDetail = await postModel.findById(req.params.postId);
+        res.status(201).send({ data: resDetail });
+    } catch (e) {
+        httpError(res, e)
+    }
+}
 
 const createdItem = async (req, res) => {
     try {
@@ -17,7 +25,7 @@ const createdItem = async (req, res) => {
         const resDetail = await postModel.create({
             title, description, author, likes, isActive: true
         });
-        res.status(201).send({ data: resDetail })
+        res.status(201).send({ data: resDetail });
     } catch (e) {
         httpError(res, e)
     }
@@ -47,4 +55,4 @@ const getFilterPostsWithStateActiveAndOptions = async (req, res) => {
     }
 }
 
-module.exports = { index, createdItem, updatedItem, deletedItem, getFilterPostsWithStateActiveAndOptions }
+module.exports = { index, getItem, createdItem, updatedItem, deletedItem, getFilterPostsWithStateActiveAndOptions }
