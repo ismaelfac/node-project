@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const { httpError } = require('../helpers/handleError');
-const postModel  = require('../models/posts')
+const modelName = [];
 
 const index = async (req, res) => {
     try {
-        const ListAll = await postModel.find({})
+        const ListAll = await modelName.find({})
         res.send({ data: ListAll })
     } catch (e) {
         httpError(res, e)
@@ -14,7 +14,7 @@ const index = async (req, res) => {
 const createdItem = async (req, res) => {
     try {
         const { title, description, author, likes } = req.body;
-        const resDetail = await postModel.create({
+        const resDetail = await modelName.create({
             title, description, author, likes, isActive: true
         });
         res.status(201).send({ data: resDetail })
@@ -37,7 +37,7 @@ const getFilterPostsWithStateActiveAndOptions = async (req, res) => {
     try {
         const { author } = req.body;
         console.log('****author*****',author);
-        const result = await postModel.distinct('title', {
+        const result = await modelName.distinct('title', {
             author: mongoose.Types.ObjectId(`${author}`)
         });
         console.log('****** Result ***********',result);

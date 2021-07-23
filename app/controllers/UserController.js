@@ -25,7 +25,7 @@ const createdItem = async (req, res) => {
         const resDetail = await userModel.create({
             name, age, email
         })
-        res.send({ data: resDetail })
+        res.status(201).send({ data: resDetail })
     } catch (e) {
         httpError(res, e)
     }
