@@ -1,50 +1,27 @@
 const mongoose = require('mongoose');
 const { httpError } = require('../helpers/handleError');
-const modelName = [];
+const postModel  = require('../models/posts')
 
-const index = async (req, res) => {
-    try {
-        const ListAll = await modelName.find({})
-        res.send({ data: ListAll })
-    } catch (e) {
-        httpError(res, e)
-    } 
-}
+class BaseRepository {
+    constructor(model){
+        this.model = model;
+    }
 
-const createdItem = async (req, res) => {
-    try {
-        const { title, description, author, likes } = req.body;
-        const resDetail = await modelName.create({
-            title, description, author, likes, isActive: true
-        });
-        res.status(201).send({ data: resDetail })
-    } catch (e) {
-        httpError(res, e)
+    async index(){
+        try {
+            const ListAll = await this.model.find({});
+            res.status(201).send({ data: ListAll });
+        } catch (e) {
+            httpError(res, e)
+        }
+    }
+
+    async create(entity) {
+        return await this.model.create(entity);
     }
 }
 
-const updatedItem = (req, res) => {
-    
-}
+module.exports = BaseRepository;
 
-const deletedItem = (req, res) => {
-    
-}
 
-//: METODO DE AGREGACION DE PROPOSITO UNICO
 
-const getFilterPostsWithStateActiveAndOptions = async (req, res) => {
-    try {
-        const { author } = req.body;
-        console.log('****author*****',author);
-        const result = await modelName.distinct('title', {
-            author: mongoose.Types.ObjectId(`${author}`)
-        });
-        console.log('****** Result ***********',result);
-        res.send({ data: result });
-    } catch (e) {
-        httpError(res, e)
-    }
-}
-
-module.exports = { index, createdItem, updatedItem, deletedItem, getFilterPostsWithStateActiveAndOptions }
