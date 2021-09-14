@@ -20,9 +20,18 @@ const ContractsSchema = new mongoose.Schema(
             type: Boolean,
             index: true
         },
-        arrendatario: { type: Schema.ObjectId, ref: "people" },
-        deudorSolidario: {},
-        real_estate_data: { type: Schema.ObjectId, ref: "real_estate_data" }
+        arrendatario: { 
+            type: Schema.ObjectId, 
+            ref: "people" 
+        },
+        solidaryDebtors: {
+            type: Schema.ObjectId, 
+            ref: "people" 
+        },
+        real_estate_data: { 
+            type: Schema.ObjectId, 
+            ref: "real_estate_data" 
+        }
     },
     {
         timestamps: true,
