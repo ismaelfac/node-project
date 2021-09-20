@@ -1,14 +1,9 @@
 const mongoose = require('mongoose');
-const contract = mongoose.model('contracts')
+
 const RealEstateData = new mongoose.Schema(
     {
-        contract: { 
-            type: Schema.ObjectId, 
-            ref: "contracts" 
-        },
         propertyType: {
-            type: Array,
-            default: [],
+            type: String,
             require: true,
             index: true
         },
@@ -19,11 +14,12 @@ const RealEstateData = new mongoose.Schema(
         garages: {
             type: Array,
             default: [],
-            unique: true,
             index: true
         },
         useful_room: {
             type: Array,
+            default: [],
+            index: true
         },
         cannonLease: {
             type: String
