@@ -12,6 +12,11 @@ const DocumentsContractActorsSchema = new mongoose.Schema(
         },
         files: {
             type: Array
+        },
+        state: {
+            type: String,
+            enum: ['Pendiente', 'Por Revision', 'Rechazado', 'Aprobado'],
+            default: 'Pendiente'
         }
     },
     {

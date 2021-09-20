@@ -9,6 +9,10 @@ const DocumentsContractSchema = new mongoose.Schema(
         description: {
             type: String,
             require: true
+        },
+        state: {
+            type: Boolean,
+            default: false,
         }
     },
     {
