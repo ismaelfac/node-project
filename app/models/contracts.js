@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const people = mongoose.model('people');
 const real_estate_data = mongoose.model('real_estate_data');
 
 const ContractsSchema = new mongoose.Schema(
@@ -19,14 +18,6 @@ const ContractsSchema = new mongoose.Schema(
         isActive: {
             type: Boolean,
             index: true
-        },
-        arrendatario: { 
-            type: Schema.ObjectId, 
-            ref: "people" 
-        },
-        solidaryDebtors: {
-            type: Schema.ObjectId, 
-            ref: "people" 
         },
         real_estate_data: { 
             type: Schema.ObjectId, 
