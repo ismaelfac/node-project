@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const real_estate_data = mongoose.model('real_estate_data');
 
 const ContractsSchema = new mongoose.Schema(
     {
@@ -8,19 +7,20 @@ const ContractsSchema = new mongoose.Schema(
             require: true,
             index: true
         },
-        age: {
-            type: Number
-        },
-        NoAsegurable: {
+        asegurable: {
             type: String,
             index: true
         },
+        domus: {
+            type: String
+        },
         isActive: {
             type: Boolean,
+            default: false,
             index: true
         },
         real_estate_data: { 
-            type: Schema.ObjectId, 
+            type: mongoose.Types.ObjectId, 
             ref: "real_estate_data" 
         }
     },

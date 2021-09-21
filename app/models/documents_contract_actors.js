@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 const DocumentsContractActorsSchema = new mongoose.Schema(
     {
         contractActorsId: {
-            type: Schema.ObjectId, 
+            type: mongoose.Types.ObjectId, 
             ref: "contract_actors"
         },
         documentsContractId: { 
-            type: Schema.ObjectId, 
-            ref: "documents_contract" 
+            type: mongoose.Types.ObjectId, 
+            ref: "documents_contract"
         },
         files: {
             type: Array

@@ -1,9 +1,9 @@
 const { httpError } = require('../helpers/handleError');
-const ContractActorsSchema  = require('../models/contract_actors')
+const DocumentContractActorsSchema  = require('../models/documents_contract_actors')
 
 const index = async (req, res) => {
     try {
-        const ListAll = await ContractActorsSchema.find({})
+        const ListAll = await DocumentContractActorsSchema.find({})
         res.send({ data: ListAll })
     } catch (e) {
         httpError(res, e)
@@ -12,7 +12,7 @@ const index = async (req, res) => {
 
 const getItem = async (req, res) => {
     try {
-        const ListAll = await ContractActorsSchema.find({})
+        const ListAll = await DocumentContractActorsSchema.find({})
         res.send({ data: ListAll })
     } catch (e) {
         httpError(res, e)
@@ -21,9 +21,9 @@ const getItem = async (req, res) => {
 
 const createdItem = async (req, res) => {
     try {
-        const { contractId, peopleId, actorId, typePerson } = req.body;
-        const resDetail = await ContractActorsSchema.create({
-            contractId, peopleId, actorId, typePerson
+        const { contractActorsId, documentsContractId, files, state } = req.body;
+        const resDetail = await DocumentContractActorsSchema.create({
+            contractActorsId, documentsContractId, files, state
         })
         res.status(201).send({ data: resDetail })
     } catch (e) {
