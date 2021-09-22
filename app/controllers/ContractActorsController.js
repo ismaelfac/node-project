@@ -12,8 +12,9 @@ const index = async (req, res) => {
 
 const getItem = async (req, res) => {
     try {
-        const ListAll = await ContractActorsSchema.find({})
-        res.send({ data: ListAll })
+        const { _id } = req.body;
+        const ListAll = await ContractActorsSchema.findById(_id)
+        res.status(200).send({ data: ListAll })
     } catch (e) {
         httpError(res, e)
     } 
