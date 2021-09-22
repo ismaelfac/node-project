@@ -15,9 +15,14 @@ const ContractActorsSchema = new mongoose.Schema(
             ref: "type_actors" 
         },
         typePerson: {
-            type: Array,
-            default: ['Natural', 'Juridica'],
+            type: String,
+            enum: ['Natural', 'Juridica'],
+            default: 'Natural',
             require: true
+        },
+        PeoplelegalRepresentative: {
+            type: mongoose.Types.ObjectId, 
+            ref: "people"
         }
     },
     {

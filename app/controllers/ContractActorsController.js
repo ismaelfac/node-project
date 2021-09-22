@@ -22,9 +22,9 @@ const getItem = async (req, res) => {
 
 const createdItem = async (req, res) => {
     try {
-        const { contractId, peopleId, actorId, typePerson } = req.body;
+        const { contractId, peopleId, actorId, typePerson, PeoplelegalRepresentative } = req.body;
         const resDetail = await ContractActorsSchema.create({
-            contractId, peopleId, actorId, typePerson
+            contractId, peopleId, actorId, typePerson, PeoplelegalRepresentative
         })
         res.status(201).send({ data: resDetail })
     } catch (e) {
@@ -32,8 +32,24 @@ const createdItem = async (req, res) => {
     }
 }
 
-const updatedItem = (req, res) => {
-    
+const updatedItem = async (req, res) => {
+    try {
+        const { _id } = req.body;
+        const findContractActors = ContractActorsSchema.findById(_id)
+        if(findContractActors){
+            const { contractId, peopleId, actorId, typePerson, PeoplelegalRepresentative } = req.body;
+            await ContractActorsSchema.updateMany({
+                contractId: contractId, 
+                peopleId: peopleId, 
+                actorId: actorId, 
+                typePerson: typePerson,
+                PeoplelegalRepresentative: PeoplelegalRepresentative
+            })
+            res.status(200).send({ data: ListAll });
+        }
+    } catch (e) {
+        httpError(res, e)
+    }
 }
 
 const deletedItem = (req, res) => {
