@@ -19,7 +19,7 @@ const getItem = async (req, res) => {
     try {
         const { _id } = req.body;
         const getContractActors = [];
-        const resultContractActors = await ContractActorsSchema.findById(_id)
+        let resultContractActors = await ContractActorsSchema.findById(_id)
         if(!resultContractActors){
             res.status(404).send("No se encontro registro")
         }else{
@@ -31,7 +31,7 @@ const getItem = async (req, res) => {
             const resultPeople = await people.find(
                 {_id: resultContractActors.peopleId}
             )
-            console.log('resultado people: '+resultPeople[0].names)
+            console.log('resultado people: '+resultPeople[0].names, resultPeople[0].dni)
 
             const resultContract = await contracts.find(
                 { _id: resultContractActors.contractId }
@@ -40,21 +40,14 @@ const getItem = async (req, res) => {
             
             const resultPeopleRepresentante = await people.find(
                 { _id: resultContractActors.PeoplelegalRepresentative }
-            ).select('names')
-            console.log('resultado represante legal: '+resultPeopleRepresentante[0].names)
-            getContractActors.push([
-                { 
-                    "arrendatario": {
-                        "typeActors": resultTypeActors,
-                        "actorsName": resultPeople,
-                    }
-                }
-            ]);
-            console.log('resultado'+getContractActors);
+            )
+            console.log('resultado represante legal: '+resultPeopleRepresentante[0].names, resultPeopleRepresentante[0].dni)
+
+            
             res.status(200).send({ data: resultContractActors })
         }
     } catch (e) {
-        httpError(res, e)
+        httpError(res.status(500).send(error))
     } 
 }
 
