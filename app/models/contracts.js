@@ -2,6 +2,11 @@ const mongoose = require('mongoose');
 
 const ContractsSchema = new mongoose.Schema(
     {
+        contractNum: {
+            type: String,
+            require: true,
+            index: true
+        },
         name: {
             type: String,
             require: true,

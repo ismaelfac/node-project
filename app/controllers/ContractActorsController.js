@@ -7,9 +7,28 @@ const type_actors = require('../models/type_actors');
 
 const index = async (req, res) => {
     try {
-        const ListAll = await ContractActorsSchema.find({})
+        const contractActorsResult = await ContractActorsSchema.aggregate([
+            {
+                $lookup:
+                {
+                    from: "people",
+                    localField: "peopleId",
+                    foreignField: "_id",
+                    as: "people"   
+                }
+            },
+            {
+                $lookup:
+                {
+                    from: "contracts",
+                    localField: "contractId",
+                    foreignField: "_id",
+                    as: "contract"   
+                }
+            }
+        ])
         
-        res.send({ data: ListAll })
+        res.send({ data: contractActorsResult })
     } catch (e) {
         httpError(res, e)
     } 
@@ -17,34 +36,41 @@ const index = async (req, res) => {
 
 const getItem = async (req, res) => {
     try {
-        const { _id } = req.body;
-        const getContractActors = [];
-        let resultContractActors = await ContractActorsSchema.findById(_id)
+        const { contractId } = req.body;
+        let getContractActors = [];
+        let resultContractActors = await ContractActorsSchema.find({contractId:contractId})
         if(!resultContractActors){
             res.status(404).send("No se encontro registro")
         }else{
-            const resultTypeActors = await type_actors.find(
-                {_id: resultContractActors.actorId}
-            ).select('nameActor')
-            console.log('resultado actor: '+resultTypeActors[0].nameActor)
+            resultContractActors.map(async (actor) => {
+                let resultTypeActors = await type_actors.find(
+                    {_id: actor.actorId}
+                ).select('nameActor')
+                
+                let resultPeople = await people.find(
+                    {_id: actor.peopleId}
+                )
+                
+                let resultContract = await contracts.find(
+                    { _id: actor.contractId }
+                ).select('name')
+                
+                let resultPeopleRepresentante = await people.find(
+                    { _id: actor.PeoplelegalRepresentative }
+                )
+                
+                getContractActors.push({
+                    "typePerson": actor.typePerson,
+                    "actor": resultTypeActors,
+                    "person": resultPeople,
+                    "contract": resultContract,
+                    "representanteLegal": resultPeopleRepresentante
+                });
+                
+            })
+            console.log('getContractActors: '+JSON.stringify(getContractActors));
 
-            const resultPeople = await people.find(
-                {_id: resultContractActors.peopleId}
-            )
-            console.log('resultado people: '+resultPeople[0].names, resultPeople[0].dni)
-
-            const resultContract = await contracts.find(
-                { _id: resultContractActors.contractId }
-            ).select('name')
-            console.log('resultado contrato: '+resultContract[0].name)
-            
-            const resultPeopleRepresentante = await people.find(
-                { _id: resultContractActors.PeoplelegalRepresentative }
-            )
-            console.log('resultado represante legal: '+resultPeopleRepresentante[0].names, resultPeopleRepresentante[0].dni)
-
-            
-            res.status(200).send({ data: resultContractActors })
+            res.status(200).send({ data: resultContractActors });
         }
     } catch (e) {
         httpError(res.status(500).send(error))

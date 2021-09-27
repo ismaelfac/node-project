@@ -21,9 +21,9 @@ const getItem = async (req, res) => {
 
 const createdItem = async (req, res) => {
     try {
-        const { name, asegurable, domus, isActive, real_estate_data } = req.body;
+        const { contractNum, name, asegurable, domus, isActive, real_estate_data } = req.body;
         const resDetail = await ContractsSchema.create({
-            name, asegurable, domus, isActive, real_estate_data
+            contractNum, name, asegurable, domus, isActive, real_estate_data
         })
         res.status(201).send({ data: resDetail })
     } catch (e) {
