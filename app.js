@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
+
 const app = express();
 const { dbConnect } = require('./config/mongo');
 
@@ -11,8 +12,6 @@ app.use(cors());
 app.use(express.json());
 app.use('/api/1.0', require('./app/routes'));
 app.use(morgan('dev'));
-
-
 
 dbConnect();
 app.listen(PORT, () => {
