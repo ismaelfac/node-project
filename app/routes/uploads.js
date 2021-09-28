@@ -16,6 +16,6 @@ const storage = multer.diskStorage({
 
 let uploadFile = multer({ storage });
 
-router.post('/', uploadFile.single('file') , upload); //TODO: localhost/users/ ---> lista 
+router.post('/', [checkOrigin, uploadFile.single('file')] , upload); //TODO: localhost/users/ ---> lista 
 
 module.exports = router;
