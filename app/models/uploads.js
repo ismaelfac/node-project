@@ -11,12 +11,14 @@ const UploadSchema = new mongoose.Schema(
             index: true
         },
         description: {
-            type: String,
-            require: true
+            type: String
         },
         file: {
             type: String,
             require:true
+        },
+        size: {
+            type: String
         },
         isActive: {
             type: Boolean,
