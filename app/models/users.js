@@ -18,6 +18,7 @@ const UsersSchema = new mongoose.Schema(
         password: {
             type: String
         },
+        roles: [],
         token: {
             type: String,
         }
