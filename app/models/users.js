@@ -7,9 +7,6 @@ const UsersSchema = new mongoose.Schema(
             require: true,
             index: true
         },
-        age: {
-            type: Number
-        },
         email: {
             type: String,
             unique: true,

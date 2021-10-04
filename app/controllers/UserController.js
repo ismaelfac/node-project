@@ -21,9 +21,9 @@ const getItem = async (req, res) => {
 
 const createdItem = async (req, res) => {
     try {
-        const { name, age, email } = req.body;
+        const { name, email, password } = req.body;
         const resDetail = await userModel.create({
-            name, age, email
+            name, email, password
         })
         res.status(201).send({ data: resDetail })
     } catch (e) {
