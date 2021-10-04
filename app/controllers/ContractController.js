@@ -1,5 +1,5 @@
 const { httpError } = require('../helpers/handleError');
-const ContractsSchema  = require('../models/contracts')
+const ContractsSchema  = require('../models/contracts');
 
 const index = async (req, res) => {
     try {
@@ -31,12 +31,24 @@ const createdItem = async (req, res) => {
     }
 }
 
-const updatedItem = (req, res) => {
-    
+const updatedItem = async (req, res) => {
+    try {
+        const updateContract = await ContractsSchema.findByIdAndUpdate(req.params.id, req.body, {
+            new: true
+        })
+        res.status(200).send(updateContract)
+    } catch (e) {
+        httpError(res, e)
+    }
 }
 
-const deletedItem = (req, res) => {
-    
+const deletedItem = async (req, res) => {
+    try {
+        const deleteContract = await ContractsSchema.findByIdAndDelete(req.params.id);
+        res.status(204).send(deleteContract);
+    } catch (e) {
+        httpError(res, e)
+    }
 }
 
 
