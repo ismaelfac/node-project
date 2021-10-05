@@ -3,9 +3,14 @@ const userModel  = require('../models/users')
 
 const signin = async (req, res) => {
     try {
-        const { username, password } = req.body;
-        
-        res.status(201).send({ data: resDetail })
+        const { email, password } = req.body;
+        const userFound = await userModel.findOne({email}).populate("roles");
+        const comparePassword = await userModel.comparePassword(password, userFound.password);
+        if(!comparePassword){
+            res.status(401).json({token: null, message: 'Invalid password'});
+        }else{
+            res.status(201).send({ token: userFound.token });
+        }        
     } catch (e) {
         httpError(res, e)
     }
