@@ -1,9 +1,11 @@
 const { httpError } = require('../helpers/handleError');
-const userModel  = require('../models/users')
+const jwt  = require('jsonwebtoken');
+const UsersSchema  = require('../models/users');
+const RoleSchema = require('../models/roles');
 
 const index = async (req, res) => {
     try {
-        const ListAll = await userModel.find({})
+        const ListAll = await UsersSchema.find({})
         res.send({ data: ListAll })
     } catch (e) {
         httpError(res, e)
@@ -12,7 +14,7 @@ const index = async (req, res) => {
 
 const getItem = async (req, res) => {
     try {
-        const ListAll = await userModel.find({})
+        const ListAll = await UsersSchema.find({})
         res.send({ data: ListAll })
     } catch (e) {
         httpError(res, e)
@@ -21,18 +23,36 @@ const getItem = async (req, res) => {
 
 const createdItem = async (req, res) => {
     try {
-        const { username, email, password } = req.body;
-        const resDetail = await userModel.create({
-            username, email, password
+        const { username, email, password, roles } = req.body;
+        const foundRoles = await RoleSchema.find({name: {$in: roles}});
+        const newUser = new UsersSchema({
+            username, 
+            email, 
+            password: await UsersSchema.encryptPassword(password),
+            roles: foundRoles[0]._id
         })
-        res.status(201).send({ data: resDetail })
+        const saveUser = await newUser.save();
+        const token = jwt.sign({id: saveUser._id}, 'ALIADOS',{
+            expiresIn: 86400 //24 HORAS
+        })
+        await UsersSchema.findByIdAndUpdate(saveUser._id, {token: token}, {
+            new: true
+        })
+        res.status(201).send({ data: token })        
     } catch (e) {
         httpError(res, e)
     }
 }
 
-const updatedItem = (req, res) => {
-    
+const updatedItem = async (req, res) => {
+    try {
+        const updateUSer = await UsersSchema.findByIdAndUpdate(req.params.id, req.body, {
+            new: true
+        })
+        res.status(200).send(updateUSer)
+    } catch (e) {
+        httpError(res, e)
+    }
 }
 
 const deletedItem = (req, res) => {

@@ -31,9 +31,12 @@ const UsersSchema = new mongoose.Schema(
 )
 
 UsersSchema.statics.encryptPassword = async (password)  => {
-    bcrypt.genSalt(10)
+    const salt = await bcrypt.genSalt(10);
+    return await bcrypt.hash(password, salt);
 }
 
-UsersSchema.statics.comparePassword = async (password, receivedPassword) => {}
+UsersSchema.statics.comparePassword = async (password, receivedPassword) => {
+    return await bcrypt.compare(password, receivedPassword);
+}
 
 module.exports = mongoose.model('users', UsersSchema)
