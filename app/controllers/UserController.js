@@ -5,7 +5,7 @@ const RoleSchema = require('../models/roles');
 
 const index = async (req, res) => {
     try {
-        const ListAll = await UsersSchema.find({isActive}).populate({path:"roles", select: 'name'});
+        const ListAll = await UsersSchema.find({isActive: true}).populate({path:"roles", select: 'name'});
         res.send({ data: ListAll })
     } catch (e) {
         httpError(res, e)
@@ -34,10 +34,7 @@ const createdItem = async (req, res) => {
             isActive
         })
         const saveUser = await newUser.save();
-        const token = jwt.sign({id: saveUser._id}, 'ALIADOS',{
-            expiresIn: 86400 //24 HORAS
-        })
-        res.status(201).send({ data: token })        
+        res.status(201).send({ data: saveUser })        
     } catch (e) {
         httpError(res, e)
     }
@@ -54,8 +51,28 @@ const updatedItem = async (req, res) => {
     }
 }
 
-const deletedItem = (req, res) => {
-    
+const deletedItem = async (req, res) => {
+    try {
+        const UserFound = await UsersSchema.findById(req.params.id)
+        const deleteUSer = await UsersSchema.findByIdAndUpdate(UserFound, {isActive: false}, {
+            new: true
+        })
+        res.status(200).send(deleteUSer)
+    } catch (e) {
+        httpError(res, e)
+    }
 }
 
-module.exports = { index, getItem, createdItem, updatedItem, deletedItem }
+const activeUser = async (req, res) => {
+    try {
+        const UserFound = await UsersSchema.findById(req.params.id)
+        const activeUser = await UsersSchema.findByIdAndUpdate(UserFound, {isActive: true}, {
+            new: true
+        })
+        res.status(200).send(activeUser)
+    } catch (e) {
+        httpError(res, e)
+    }
+}
+
+module.exports = { index, getItem, createdItem, updatedItem, deletedItem, activeUser }

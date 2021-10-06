@@ -11,7 +11,8 @@ const UsersSchema = new mongoose.Schema(
         email: {
             type: String,
             unique: true,
-            index: true
+            index: true,
+            trim: true
         },
         password: {
             type: String
@@ -22,6 +23,7 @@ const UsersSchema = new mongoose.Schema(
         }],
         avatar: {
             type: String,
+            trim: true,
             required: true //Debe tener un valor
         },
         isActive: {

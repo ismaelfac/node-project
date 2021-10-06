@@ -5,7 +5,7 @@ const dbConnect = () => {
     mongoose.connect(DB_URL, {
         useNewUrlParser: true,
         useFindAndModify: false,
-        useCreateIndexe: true, 
+        useCreateIndex: true, 
         useUnifiedTopology: true
     }, err => {
         if(err) {
@@ -13,7 +13,14 @@ const dbConnect = () => {
         }else{
             console.log('****** Conexion Exitosa *******');
         }
-    });
+    },
+        process.on('signup', () => {
+            mongoose.connection.close(()=> {
+                console.log('DB is Closed');
+                process.exit(0);
+            })
+        })
+    );
 }
 
 module.exports = { dbConnect }
