@@ -35,9 +35,6 @@ const createdItem = async (req, res) => {
         const token = jwt.sign({id: saveUser._id}, 'ALIADOS',{
             expiresIn: 86400 //24 HORAS
         })
-        await UsersSchema.findByIdAndUpdate(saveUser._id, {token: token}, {
-            new: true
-        })
         res.status(201).send({ data: token })        
     } catch (e) {
         httpError(res, e)

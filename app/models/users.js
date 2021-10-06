@@ -19,10 +19,7 @@ const UsersSchema = new mongoose.Schema(
         roles: [{
             ref: "roles",
             type: mongoose.Types.ObjectId
-        }],
-        token: {
-            type: String,
-        }
+        }]
     },
     {
         timestamps: true,
