@@ -5,7 +5,7 @@ const RoleSchema = require('../models/roles');
 
 const index = async (req, res) => {
     try {
-        const ListAll = await UsersSchema.find({})
+        const ListAll = await UsersSchema.find({isActive}).populate({path:"roles", select: 'name'});
         res.send({ data: ListAll })
     } catch (e) {
         httpError(res, e)
@@ -23,13 +23,15 @@ const getItem = async (req, res) => {
 
 const createdItem = async (req, res) => {
     try {
-        const { username, email, password, roles } = req.body;
+        const { name, email, password, roles, avatar, isActive } = req.body;
         const foundRoles = await RoleSchema.find({name: {$in: roles}});
         const newUser = new UsersSchema({
-            username, 
+            name, 
             email, 
             password: await UsersSchema.encryptPassword(password),
-            roles: foundRoles[0]._id
+            roles: foundRoles[0]._id,
+            avatar,
+            isActive
         })
         const saveUser = await newUser.save();
         const token = jwt.sign({id: saveUser._id}, 'ALIADOS',{

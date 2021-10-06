@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 
 const UsersSchema = new mongoose.Schema(
     {
-        username: {
+        name: {
             type: String,
             require: true,
             index: true
@@ -19,7 +19,15 @@ const UsersSchema = new mongoose.Schema(
         roles: [{
             ref: "roles",
             type: mongoose.Types.ObjectId
-        }]
+        }],
+        avatar: {
+            type: String,
+            required: true //Debe tener un valor
+        },
+        isActive: {
+            type: Boolean,
+            default: false
+        }
     },
     {
         timestamps: true,

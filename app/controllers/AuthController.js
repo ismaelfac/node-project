@@ -1,5 +1,7 @@
 const { httpError } = require('../helpers/handleError');
+const jwt = require("jsonwebtoken");
 const userModel  = require('../models/users')
+const SECRET = "ALIADOS";
 
 const signin = async (req, res) => {
     try {
@@ -9,7 +11,10 @@ const signin = async (req, res) => {
         if(!comparePassword){
             res.status(401).json({token: null, message: 'Invalid password'});
         }else{
-            res.status(201).send({ token: userFound.token });
+            const token = jwt.sign({id: userFound._id }, SECRET, {
+                expiresIn: 86400
+            })
+            res.status(201).send({ token: token });
         }        
     } catch (e) {
         httpError(res, e)
