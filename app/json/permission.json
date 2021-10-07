@@ -1,0 +1,282 @@
+[
+    {
+    "name": "Inicio",
+    "action": "home",
+    "description": "Ver el home",
+    "variant": "success",
+    "is_system": false
+    },
+    {
+    "name": "Dashboard",
+    "action": "dashboards",
+    "description": "Ver el panel",
+    "variant": "success",
+    "is_system": true
+    },
+    {
+    "name": "Navegar Usuarios",
+    "action": "users.index",
+    "description": "Lista los usuarios del sistema",
+    "variant": "success",
+    "is_system": true
+    },
+    {
+    "name": "Crear Usuarios",
+    "action": "users.create",
+    "description": "Puede crear los usuarios del sistema",
+    "variant": "success",
+    "is_system": true
+    },
+    {
+    "name": "Ver detalle de Usuarios",
+    "action": "users.show",
+    "description": "Ver el detalle de los usuarios del sistema",
+    "variant": "success",
+    "is_system": true
+    },
+    {
+    "name": "Edición de Usuarios",
+    "action": "users.edit",
+    "description": "Editar los usuarios del sistema",
+    "variant": "success",
+    "is_system": true
+    },
+    {
+    "name": "Eliminar Usuarios",
+    "action": "users.destroy",
+    "description": "Eliminar los usuarios del sistema",
+    "variant": "success",
+    "is_system": true
+    },
+    {
+    "name": "Imprimir",
+    "action": "users.print",
+    "description": "Imprimir Usuarios",
+    "variant": "danger",
+    "is_system": true
+    },
+    {
+    "name": "Exportar",
+    "action": "users.export",
+    "description": "Exportar Usuarios",
+    "variant": "danger",
+    "is_system": true
+    },
+    {
+    "name": "Navegar Roles",
+    "action": "roles.index",
+    "description": "Lista los roles del sistema",
+    "variant": "success",
+    "is_system": true
+    },
+    {
+    "name": "Crear roles",
+    "action": "roles.create",
+    "description": "Puede crear los roles del sistema",
+    "variant": "success",
+    "is_system": true
+    },
+    {
+    "name": "Ver detalle de roles",
+    "action": "roles.show",
+    "description": "Ver el detalle de los roles del sistema",
+    "variant": "success",
+    "is_system": true
+    },
+    {
+    "name": "Edición de roles",
+    "action": "roles.edit",
+    "description": "Editar los roles del sistema",
+    "variant": "success",
+    "is_system": true
+    },
+    {
+    "name": "Eliminar roles",
+    "action": "roles.destroy",
+    "description": "Eliminar los roles del sistema",
+    "variant": "success",
+    "is_system": true
+    },
+    {
+    "name": "Imprimir",
+    "action": "roles.print",
+    "description": "Imprimir Roles",
+    "variant": "danger",
+    "is_system": true
+    },
+    {
+    "name": "Exportar",
+    "action": "roles.export",
+    "description": "Exportar Roles",
+    "variant": "danger",
+    "is_system": true
+    },
+    {
+    "name": "Navegar permisos",
+    "action": "permissions.index",
+    "description": "Lista los permisos del sistema",
+    "variant": "success",
+    "is_system": true
+    },
+    {
+    "name": "Crear permisos",
+    "action": "permissions.create",
+    "description": "Puede crear los permisos del sistema",
+    "variant": "success",
+    "is_system": true
+    },
+    {
+    "name": "Ver detalle de permisos",
+    "action": "permissions.show",
+    "description": "Ver el detalle de los permisos del sistema",
+    "variant": "success",
+    "is_system": true
+    },
+    {
+    "name": "Edición de permisos",
+    "action": "permissions.edit",
+    "description": "Editar los permisos del sistema",
+    "variant": "success",
+    "is_system": true
+    },
+    {
+    "name": "Eliminar permisos",
+    "action": "permissions.destroy",
+    "description": "Eliminar los permisos del sistema",
+    "variant": "success",
+    "is_system": true
+    },
+    {
+    "name": "Imprimir",
+    "action": "permissions.print",
+    "description": "Imprimir Permisos",
+    "variant": "danger",
+    "is_system": true
+    },
+    {
+    "name": "Exportar",
+    "action": "permissions.export",
+    "description": "Exportar Permisos",
+    "variant": "danger",
+    "is_system": true
+    },
+    {
+    "name": "Navegar Clientes",
+    "action": "customers.index",
+    "description": "Lista los Clientes",
+    "variant": "success",
+    "is_system": false
+    },
+    {
+    "name": "Crear Clientes",
+    "action": "customers.create",
+    "description": "Puede crear los clientes",
+    "variant": "success",
+    "is_system": false
+    },
+    {
+    "name": "Ver detalle de Clientes",
+    "action": "customers.show",
+    "description": "Ver el detalle de los clientes",
+    "variant": "success",
+    "is_system": false
+    },
+    {
+    "name": "Edición de Clientes",
+    "action": "customers.edit",
+    "description": "Editar los Clientes",
+    "variant": "success",
+    "is_system": false
+    },
+    {
+    "name": "Eliminar Clientes",
+    "action": "customers.destroy",
+    "description": "Eliminar los Clientes",
+    "variant": "success",
+    "is_system": false
+    },
+    {
+    "name": "Imprimir",
+    "action": "customers.print",
+    "description": "Imprimir Clientes",
+    "variant": "danger",
+    "is_system": false
+    },
+    {
+    "name": "Exportar",
+    "action": "customers.export",
+    "description": "Exportar Clientes",
+    "variant": "danger",
+    "is_system": false
+    },
+    {
+    "name": "Navegar Propietarios",
+    "action": "owner.index",
+    "description": "Lista los Propietarios",
+    "variant": "success",
+    "is_system": false
+    },
+    {
+    "name": "Crear Propietarios",
+    "action": "owner.create",
+    "description": "Puede crear los Propietarios",
+    "variant": "success",
+    "is_system": false
+    },
+    {
+    "name": "Ver detalle de Propietarios",
+    "action": "owner.show",
+    "description": "Ver el detalle de los Propietarios",
+    "variant": "success",
+    "is_system": false
+    },
+    {
+    "name": "Edición de Propietarios",
+    "action": "owner.edit",
+    "description": "Editar los Propietarios",
+    "variant": "success",
+    "is_system": false
+    },
+    {
+    "name": "Eliminar Propietarios",
+    "action": "owner.destroy",
+    "description": "Eliminar los Propietarios",
+    "variant": "success",
+    "is_system": false
+    },
+    {
+    "name": "Navegar Contratos",
+    "action": "contracts.index",
+    "description": "Lista los Contratos",
+    "variant": "success",
+    "is_system": true
+    },
+    {
+    "name": "Crear Contratos",
+    "action": "contracts.create",
+    "description": "Puede crear los Contratos",
+    "variant": "success",
+    "is_system": true
+    },
+    {
+    "name": "Ver detalle de Contratos",
+    "action": "contracts.show",
+    "description": "Ver el detalle de los Contratos",
+    "variant": "success",
+    "is_system": true
+    },
+    {
+    "name": "Edición de Contratos",
+    "action": "contracts.edit",
+    "description": "Editar los Contratos",
+    "variant": "success",
+    "is_system": true
+    },
+    {
+    "name": "Eliminar Contratos",
+    "action": "contracts.destroy",
+    "description": "Eliminar los Contratos",
+    "variant": "success",
+    "is_system": true
+    }
+    ]

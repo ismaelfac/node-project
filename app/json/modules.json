@@ -1,0 +1,27 @@
+[
+    {
+        "title": "users",
+        "description": "",
+        "is_active": true
+    },
+    {
+        "title": "roles",
+        "description": "",
+        "is_active": true
+    },
+    {
+        "title": "permissions",
+        "description": "",
+        "is_active": true
+    },
+    {
+        "title": "roles_permissions",
+        "description": "",
+        "is_active": true
+    },
+    {
+        "title": "contracts",
+        "description": "",
+        "is_active": true
+    }
+]

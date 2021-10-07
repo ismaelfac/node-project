@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { index, getItem, createdItem, updatedItem, deletedItem } = require('../controllers/DocumentContractActorsController');
-const checkOrigin = require('../middleware/origin');
+const {checkOrigin, isRole} = require('../middleware/origin');
 
 router.get('/', checkOrigin, index); //TODO: localhost/users/ ---> lista 
 router.get('/:id', checkOrigin, getItem); //TODO: localhost/users/:id ---> DETALLE 

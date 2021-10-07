@@ -1,10 +1,9 @@
 const { httpError } = require('../helpers/handleError');
-const UsersSchema  = require('../models/users');
-const RoleSchema = require('../models/roles');
+const ModulesSchema = require('../models/modules');
 
 const index = async (req, res) => {
     try {
-        const ListAll = await UsersSchema.find({isActive: true}).populate({path:"roles", select: 'name'});
+        const ListAll = await ModulesSchema.find({isActive: true});
         res.send({ data: ListAll })
     } catch (e) {
         httpError(res, e)
@@ -13,7 +12,7 @@ const index = async (req, res) => {
 
 const getItem = async (req, res) => {
     try {
-        const ListAll = await UsersSchema.find({})
+        const ListAll = await ModulesSchema.find({})
         res.send({ data: ListAll })
     } catch (e) {
         httpError(res, e)
@@ -24,10 +23,10 @@ const createdItem = async (req, res) => {
     try {
         const { name, email, password, roles, avatar, isActive } = req.body;
         const foundRoles = await RoleSchema.find({name: {$in: roles}});
-        const newUser = new UsersSchema({
+        const newUser = new ModulesSchema({
             name, 
             email, 
-            password: await UsersSchema.encryptPassword(password),
+            password: await ModulesSchema.encryptPassword(password),
             roles: foundRoles[0]._id,
             avatar,
             isActive
@@ -41,7 +40,7 @@ const createdItem = async (req, res) => {
 
 const updatedItem = async (req, res) => {
     try {
-        const updateUSer = await UsersSchema.findByIdAndUpdate(req.params.id, req.body, {
+        const updateUSer = await ModulesSchema.findByIdAndUpdate(req.params.id, req.body, {
             new: true
         })
         res.status(200).send(updateUSer)
@@ -52,8 +51,8 @@ const updatedItem = async (req, res) => {
 
 const deletedItem = async (req, res) => {
     try {
-        const UserFound = await UsersSchema.findById(req.params.id)
-        const deleteUSer = await UsersSchema.findByIdAndUpdate(UserFound, {isActive: false}, {
+        const UserFound = await ModulesSchema.findById(req.params.id)
+        const deleteUSer = await ModulesSchema.findByIdAndUpdate(UserFound, {isActive: false}, {
             new: true
         })
         res.status(200).send(deleteUSer)
@@ -64,8 +63,8 @@ const deletedItem = async (req, res) => {
 
 const activeUser = async (req, res) => {
     try {
-        const UserFound = await UsersSchema.findById(req.params.id)
-        const activeUser = await UsersSchema.findByIdAndUpdate(UserFound, {isActive: true}, {
+        const UserFound = await ModulesSchema.findById(req.params.id)
+        const activeUser = await ModulesSchema.findByIdAndUpdate(UserFound, {isActive: true}, {
             new: true
         })
         res.status(200).send(activeUser)

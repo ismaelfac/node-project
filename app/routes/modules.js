@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { index, getItem, createdItem, updatedItem, deletedItem, activeUser } = require('../controllers/UserController');
+const { index, getItem, createdItem, updatedItem, deletedItem, activeUser } = require('../controllers/ModuleController');
 const {checkOrigin, isRole} = require('../middleware/origin');
 
 router.get('/', [checkOrigin, isRole], index); //TODO: localhost/users/ ---> lista 
