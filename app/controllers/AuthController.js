@@ -1,7 +1,7 @@
 const { httpError } = require('../helpers/handleError');
 const jwt = require("jsonwebtoken");
 const userModel  = require('../models/users')
-const SECRET = "ALIADOS";
+const SECRET = process.env.JWT_SECRET;
 
 const signin = async (req, res) => {
     try {
