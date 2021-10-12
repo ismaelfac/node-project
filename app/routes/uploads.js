@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 const upload = require('../helpers/upload');
 const { uploadController }  = require('../controllers/UploadController');
-const {checkOrigin} = require('../middleware/origin');
+const { checkAuth } = require('../middleware/authjwt');
+const { checkRoleAuth } = require('../middleware/roleAuth');
 
-router.post('/', [checkOrigin, upload.single('file')] , uploadController); //TODO: localhost/users/ ---> lista 
+router.post('/', [checkAuth, checkRoleAuth(['ADMIN']), upload.single('file')], uploadController); //TODO: localhost/users/ ---> lista 
 
 module.exports = router;
