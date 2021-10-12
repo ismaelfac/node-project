@@ -1,21 +1,23 @@
 const { httpError } = require('../helpers/handleError');
-const jwt = require("jsonwebtoken");
-const userModel  = require('../models/users')
-const SECRET = process.env.JWT_SECRET;
+const { tokenSing } = require('../helpers/generateToken');
+const userModel  = require('../models/users');
 
 const signin = async (req, res) => {
     try {
         const { email, password } = req.body;
-        const userFound = await userModel.findOne({email}).populate("roles");
-        const comparePassword = await userModel.comparePassword(password, userFound.password);
-        if(!comparePassword){
-            res.status(401).json({token: null, message: 'Invalid password'});
+        const user = await userModel.findOne({email});
+        if(!user){
+            res.status(404).send({error: "User not found"})
         }else{
-            const token = jwt.sign({id: userFound._id }, SECRET, {
-                expiresIn: 86400
-            })
-            res.status(201).send({ token: token });
-        }        
+            const comparePassword = await userModel.comparePassword(password, user.password);
+            if(!comparePassword){
+                res.status(401).json({token: null, message: 'Invalid password'});
+            }else{
+                const token = tokenSing(user);
+                console.log(token)
+                res.status(201).send({ token: token });
+            }     
+        }   
     } catch (e) {
         httpError(res, e)
     }

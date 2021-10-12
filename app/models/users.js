@@ -17,10 +17,10 @@ const UsersSchema = new mongoose.Schema(
         password: {
             type: String
         },
-        roles: [{
-            ref: "roles",
-            type: mongoose.Types.ObjectId
-        }],
+        roles: {
+            type: String,
+            default: 'user'
+        },
         avatar: {
             type: String,
             trim: true,
