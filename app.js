@@ -17,10 +17,10 @@ app.use(morgan('dev'));
 
 dbConnect();
 app.listen(PORT, () => {
-    console.log('API listen with port',PORT)
-})
+    console.log('API listen with port',PORT);
+});
 
 io.on('connection', (socket) => {
-    console.log('Alguien se ha conectado al Sockets')
+    console.log('Alguien se ha conectado al Sockets');
 })
 

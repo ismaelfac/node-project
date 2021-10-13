@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { index, getItem, createdItem, updatedItem, deletedItem, activeUser } = require('../controllers/UserController');
 const { checkAuth } = require('../middleware/authjwt');
-const { checkRoleAuth } = require('../middleware/roleAuth')
+const { checkRoleAuth } = require('../middleware/roleAuth');
 
 router.get('/', [checkAuth, checkRoleAuth(['ADMIN'])], index); //TODO: localhost/users/ ---> lista 
 router.get('/:id', [checkAuth, checkRoleAuth(['ADMIN'])], getItem); //TODO: localhost/users/:id ---> DETALLE 
