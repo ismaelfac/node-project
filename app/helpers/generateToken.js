@@ -15,8 +15,5 @@ const verifyToken = async (token) => {
     }
 }
 
-const decodeSing = async (token) => {
 
-}
-
-module.exports = { tokenSing, verifyToken, decodeSing }
+module.exports = { tokenSing, verifyToken }

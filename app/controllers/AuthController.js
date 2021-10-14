@@ -13,9 +13,8 @@ const signin = async (req, res) => {
             if(!comparePassword){
                 res.status(401).json({token: null, message: 'Invalid password'});
             }else{
-                const token = tokenSing(user);
-                console.log(token)
-                res.status(201).send({ token: token });
+                const token = await tokenSing(user);
+                res.status(201).send({ accessToken: token, expiresIn: 86400, email: user.email, name: user.name, avatar: user.avatar, role: user.roles });
             }     
         }   
     } catch (e) {

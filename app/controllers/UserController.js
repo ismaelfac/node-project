@@ -1,6 +1,5 @@
 const { httpError } = require('../helpers/handleError');
 const UsersSchema  = require('../models/users');
-const RoleSchema = require('../models/roles');
 
 const index = async (req, res) => {
     try {
