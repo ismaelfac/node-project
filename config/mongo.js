@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const dbConnect = () => {
-    const DB_URL = process.env.DB_URL;
-    mongoose.connect(DB_URL, {
+    const DB_HOST = process.env.DB_HOST;
+    mongoose.connect(DB_HOST, {
         useNewUrlParser: true,
         useFindAndModify: false,
         useCreateIndex: true, 
@@ -10,6 +10,7 @@ const dbConnect = () => {
     }, err => {
         if(err) {
             console.log('****** Conexion Errada *******');
+            process.exit(1);
         }else{
             console.log('****** Conexion Exitosa *******');
         }

@@ -3,8 +3,7 @@ const UsersSchema  = require('../models/users');
 
 const index = async (req, res) => {
     try {
-        const ListAll = await UsersSchema.find({isActive: true});
-        res.send({ data: ListAll })
+        res.send(await UsersSchema.find({isActive: true}));
     } catch (e) {
         httpError(res, e)
     } 
@@ -12,8 +11,8 @@ const index = async (req, res) => {
 
 const getItem = async (req, res) => {
     try {
-        const ListAll = await UsersSchema.find({})
-        res.send({ data: ListAll })
+        const id = req.body.userId;
+        res.status(201).send(await UsersSchema.findById(id));
     } catch (e) {
         httpError(res, e)
     } 
@@ -39,10 +38,9 @@ const createdItem = async (req, res) => {
 
 const updatedItem = async (req, res) => {
     try {
-        const updateUSer = await UsersSchema.findByIdAndUpdate(req.params.id, req.body, {
+        res.status(200).send(await UsersSchema.findByIdAndUpdate(req.params.id, req.body, {
             new: true
-        })
-        res.status(200).send(updateUSer)
+        }));
     } catch (e) {
         httpError(res, e)
     }
