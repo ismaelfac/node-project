@@ -7,6 +7,14 @@ const RoleSchema = new mongoose.Schema(
             require: true,
             index: true
         },
+        special: {
+            type: String,
+            require: true,
+        },
+        isActive: {
+            type: Boolean,
+            require: true
+        },
     },
     {
         timestamps: true,

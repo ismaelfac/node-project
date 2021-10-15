@@ -21,9 +21,9 @@ const getItem = async (req, res) => {
 
 const createdItem = async (req, res) => {
     try {
-        const { name, special, isActive } = req.body;
+        const { name } = req.body;
         const resDetail = await RoleSchema.create({
-            name, special, isActive
+            name
         })
         res.status(201).send({ data: resDetail })
     } catch (e) {

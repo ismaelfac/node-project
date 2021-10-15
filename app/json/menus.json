@@ -1,0 +1,78 @@
+[
+    {
+        "names": "dashboard",
+        "description": "",
+        "methods":"GET",
+        "level": 1,
+        "order": 0,
+        "parent": 0,
+        "link": "/dashboard",
+        "icon": "",
+        "is_active": true
+    },
+    {
+        "names": "settings",
+        "description": "",
+        "methods":"GET",
+        "level": 1,
+        "order": 0,
+        "parent": 0,
+        "link": "/dashboard/settings",
+        "icon": "",
+        "is_active": true
+    },
+    {
+        "names": "users",
+        "description": "",
+        "methods":"GET",
+        "level": 2,
+        "order": 0,
+        "parent": 0,
+        "link": "/users",
+        "icon": "",
+        "is_active": true
+    },
+    {
+        "names": "users.create",
+        "description": "",
+        "methods":"POST",
+        "level": 2,
+        "order": 0,
+        "parent": 0,
+        "link": "/users",
+        "icon": "",
+        "is_active": true
+    },{
+        "names": "users.find",
+        "description": "",
+        "methods":"GET",
+        "level": 2,
+        "order": 0,
+        "parent": 0,
+        "link": "/users/:id",
+        "icon": "",
+        "is_active": true
+    },
+    {
+        "names": "users.update",
+        "description": "",
+        "methods":"PUT",
+        "level": 2,
+        "order": 0,
+        "parent": 0,
+        "link": "/users/:id",
+        "icon": "",
+        "is_active": true
+    },
+    {
+        "names": "users.delete",
+        "description": "",
+        "methods":"DELETE",
+        "level": 2,
+        "order": 0,
+        "parent": 0,
+        "link": "/users/:id",
+        "icon": "",
+        "is_active": true
+    }
+]
