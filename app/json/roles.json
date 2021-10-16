@@ -1,11 +1,11 @@
 [
     {
-        "name": "Super Administrador",
+        "name": "SUPER ADMINISTRADOR",
         "special":"all",
         "isActive":true
     },
     {
-        "name": "Administrador",
+        "name": "ADMINISTRADOR",
         "special": "all",
         "isActive": true
     },

@@ -1,4 +1,5 @@
 const { httpError } = require('../helpers/handleError');
+const looger = require('../helpers/looger');
 const MenuSchema  = require('../models/menus');
 const menusJson = require('../json/menus.json');
 
@@ -16,6 +17,7 @@ const createMenuSystem = async () => {
                 isActive: item.isActive
             });
             newMenus.save();
+            looger.info('Cargando datos de TypeActors')
         });       
     } catch(e){
         httpError(res, e)  

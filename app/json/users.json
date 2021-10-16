@@ -25,5 +25,14 @@
         "avatar": "/assets/img/01.jpg",
         "person_id": 3,
         "is_active": true
+    },
+    {
+        "roles": "JURIDICA",
+        "name": "MARTHA LEAL",
+        "email": "martaleal@aliadosinmobiliariossa.com",
+        "password": "123",
+        "avatar": "/assets/img/01.jpg",
+        "person_id": 4,
+        "is_active": true
     }
 ]

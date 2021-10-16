@@ -1,6 +1,6 @@
 require('dotenv').config();
 const { dbConnect } = require('../../config/mongo');
-
+const looger = require('../helpers/looger');
 dbConnect();
 
 /**archivos seeders */
@@ -11,10 +11,12 @@ const UserSeeder = require('./UserSeeder');
 
 //**Cargar del Sistema */
 loadSeeder = async () => {
-    MenuSeeder.createMenuSystem();
-    RoleSeeder.createRoleSystem();
-    PeopleSeeder.createPeopleSystem();
+    looger.info('Cargando Seeders...')
+    //MenuSeeder.createMenuSystem();
+    //RoleSeeder.createRoleSystem();
+    //PeopleSeeder.createPeopleSystem();
     UserSeeder.createUserSystem();
+    looger.info('Inyeccion de Seeders finalizada')
 }
 
 loadSeeder();

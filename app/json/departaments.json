@@ -1,0 +1,167 @@
+[
+    {
+    "description": "ANTIOQUIA",
+    "short_name": "ANT",
+    "id_country": "45"
+    },
+    {
+    "description": "ATLANTICO",
+    "short_name": "ATL",
+    "id_country": "45"
+    },
+    {
+    "description": "BOGOTA",
+    "short_name": "BOG",
+    "id_country": "45"
+    },
+    {
+    "description": "BOLIVAR",
+    "short_name": "BOL",
+    "id_country": "45"
+    },
+    {
+    "description": "BOYACA",
+    "short_name": "BOY",
+    "id_country": "45"
+    },
+    {
+    "description": "CALDAS",
+    "short_name": "CAL",
+    "id_country": "45"
+    },
+    {
+    "description": "CAQUETA",
+    "short_name": "CAQ",
+    "id_country": "45"
+    },
+    {
+    "description": "CAUCA",
+    "short_name": "CAU",
+    "id_country": "45"
+    },
+    {
+    "description": "CESAR",
+    "short_name": "CES",
+    "id_country": "45"
+    },
+    {
+    "description": "CORDOBA",
+    "short_name": "COR",
+    "id_country": "45"
+    },
+    {
+    "description": "CUNDINAMARCA",
+    "short_name": "CUN",
+    "id_country": "45"
+    },
+    {
+    "description": "CHOCO",
+    "short_name": "CHO",
+    "id_country": "45"
+    },
+    {
+    "description": "HUILA",
+    "short_name": "HUI",
+    "id_country": "45"
+    },
+    {
+    "description": "LA GUAJIRA",
+    "short_name": "GUAJ",
+    "id_country": "45"
+    },
+    {
+    "description": "MAGDALENA",
+    "short_name": "MAG",
+    "id_country": "45"
+    },
+    {
+    "description": "META",
+    "short_name": "MET",
+    "id_country": "45"
+    },
+    {
+    "description": "NARIÑO",
+    "short_name": "NAR",
+    "id_country": "45"
+    },
+    {
+    "description": "N. DE SANTANDER",
+    "short_name": "NSAN",
+    "id_country": "45"
+    },
+    {
+    "description": "QUINDIO",
+    "short_name": "QUI",
+    "id_country": "45"
+    },
+    {
+    "description": "RISARALDA",
+    "short_name": "RIS",
+    "id_country": "45"
+    },
+    {
+    "description": "SANTANDER",
+    "short_name": "SAN",
+    "id_country": "45"
+    },
+    {
+    "description": "SUCRE",
+    "short_name": "SUC",
+    "id_country": "45"
+    },
+    {
+    "description": "TOLIMA",
+    "short_name": "TOL",
+    "id_country": "45"
+    },
+    {
+    "description": "VALLE DEL CAUCA",
+    "short_name": "VCAU",
+    "id_country": "45"
+    },
+    {
+    "description": "ARAUCA",
+    "short_name": "ARA",
+    "id_country": "45"
+    },
+    {
+    "description": "CASANARE",
+    "short_name": "CAS",
+    "id_country": "45"
+    },
+    {
+    "description": "PUTUMAYO",
+    "short_name": "PUT",
+    "id_country": "45"
+    },
+    {
+    "description": "SAN ANDRES",
+    "short_name": "SAN",
+    "id_country": "45"
+    },
+    {
+    "description": "AMAZONAS",
+    "short_name": "AMA",
+    "id_country": "45"
+    },
+    {
+    "description": "GUAINIA",
+    "short_name": "GUAI",
+    "id_country": "45"
+    },
+    {
+    "description": "GUAVIARE",
+    "short_name": "GUAV",
+    "id_country": "45"
+    },
+    {
+    "description": "VAUPES",
+    "short_name": "VAU",
+    "id_country": "45"
+    },
+    {
+    "description": "VICHADA",
+    "short_name": "VIC",
+    "id_country": "45"
+    }
+    ]
