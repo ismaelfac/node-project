@@ -18,7 +18,7 @@ app.use(morgan('dev'));
 
 dbConnect();
 app.listen(PORT, () => {
-    looger.info(`${ process.env.APP_NAME } Iniciando...`)
+    looger.info(`${ process.env.APP_NAME } Iniciando...`);
     looger.info(`API listen with port ${ process.env.PORT }`);
 });
 
