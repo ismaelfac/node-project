@@ -13,7 +13,7 @@ const dbConnect = () => {
             looger.info('****** Conexion Errada *******');
             process.exit(1);
         }else{
-            looger.info('****** Conexion Exitosa *******');
+            looger.info('Conexion a la Base de Datos Exitosa');
         }
     },
         process.on('signup', () => {

@@ -12,7 +12,7 @@ module.exports = createLogger({
         new transports.File({
             maxFiles: 10,
             maxsize: 5120000,
-            filename: `${__dirname}/../logs/logs-api.log`
+            filename: `${__dirname}/../../logs/logs-api.log`
         }),
         new transports.Console({
             level: 'debug'
