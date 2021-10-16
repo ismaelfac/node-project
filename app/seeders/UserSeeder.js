@@ -7,8 +7,8 @@ const RoleJson = require('../json/roles.json')
 const createUserSystem = async () => {
     try {        
         UserJson.map(item => {
-            const peopleFound = await PeopleSchema.find({email: item.email})
-            console.log(peopleFound)
+            let peopleFound = PeopleSchema.find({email: { $in: item.email}});
+            console.log27gjknj8hc3g8x7cqfvjbwpd6
             if(peopleFound){
                 const newUser = new UsersSchema({
                     name: item.name, 
@@ -20,10 +20,10 @@ const createUserSystem = async () => {
                 });
                 newUser.save();
             }            
-            looger.info('Cargando datos de User',newUser.name)
+            looger.info('Cargando datos de User',newUser.name);
         });       
     } catch(e){
-        looger.info('Error cargando User',e)
+        looger.info('Error cargando User',e);
     }
 }
 

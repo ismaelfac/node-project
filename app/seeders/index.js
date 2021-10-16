@@ -12,10 +12,10 @@ const UserSeeder = require('./UserSeeder');
 //**Cargar del Sistema */
 loadSeeder = async () => {
     looger.info('Cargando Seeders...')
-    //MenuSeeder.createMenuSystem();
-    //RoleSeeder.createRoleSystem();
-    //PeopleSeeder.createPeopleSystem();
-    UserSeeder.createUserSystem();
+    //await MenuSeeder.createMenuSystem();
+    //await RoleSeeder.createRoleSystem();
+    //await PeopleSeeder.createPeopleSystem();
+    await UserSeeder.createUserSystem();
     looger.info('Inyeccion de Seeders finalizada')
 }
 

@@ -32,9 +32,9 @@ const createdItem = async (req, res) => {
             isActive
         })
         const saveUser = await newUser.save();
-        res.status(201).send({ data: saveUser })        
+        res.status(201).send({ data: saveUser });        
     } catch (e) {
-        httpError(res, e)
+        httpError(res, e);
     }
 }
 
