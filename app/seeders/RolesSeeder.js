@@ -6,7 +6,7 @@ const createRoleSystem = async () => {
     try {
         await rolesJson.map(item => {
             const newRoles = new RoleSchema({
-                names: item.names,
+                name: item.name,
                 special: item.special,
                 isActive: item.isActive
             });

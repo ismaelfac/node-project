@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app",
-    "build": "babel app.js --out-dir dist"
+    "build": "babel app.js --out-dir dist",
+    "seeder": "node app/seeders/index.js"
   },
   "author": "Ismael Enrique Lastre Alvarez",
   "license": "ISC",

@@ -3,13 +3,13 @@ const jwt = require("jsonwebtoken");
 const tokenSing = async (user) => {
     return jwt.sign(
         { id: user._id, role: user.roles },
-        process.env.JWT_SECRET, { expiresIn: 86400 }
+        process.env.APP_KEY, { expiresIn: 86400 }
     );
 }
 
 const verifyToken = async (token) => {
     try {
-        return await jwt.verify(token, process.env.JWT_SECRET)
+        return await jwt.verify(token, process.env.APP_KEY)
     }catch (e) {
         return null
     }

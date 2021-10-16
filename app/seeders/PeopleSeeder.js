@@ -1,11 +1,11 @@
 const { httpError } = require('../helpers/handleError');
-const MenuSchema  = require('../models/menus');
-const menusJson = require('../json/menus.json');
+const PeopleSchema  = require('../models/people');
+const peopleJson = require('../json/people.json');
 
-const createMenuSystem = async () => {
+const createPeopleSystem = async () => {
     try {
-        await menusJson.map(item => {
-            const newMenus = new MenuSchema({
+        await peopleJson.map(item => {
+            const newPeople = new PeopleSchema({
                 names: item.names,
                 description: item.description,
                 level: item.level,
@@ -15,14 +15,14 @@ const createMenuSystem = async () => {
                 icon: item.icon,
                 isActive: item.isActive
             });
-            newMenus.save();
+            newPeople.save();
         });       
     } catch(e){
         httpError(res, e)  
     }
 }
 
-const dropMenusSystem = async (req, res) => {
+const dropPeopleSystem = async (req, res) => {
 
 }
-module.exports = { createMenuSystem, dropMenusSystem }
+module.exports = { createPeopleSystem, dropPeopleSystem }

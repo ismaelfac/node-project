@@ -1,7 +1,2 @@
-const httpError = (res, err) => {
-    console.log(err);
-    res.status(500);
-    res.send({error: 'Algo ocurrio'})
-}
-
+const httpError = (res, err) => res.status(400).send({error: err});
 module.exports = { httpError }
