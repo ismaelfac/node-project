@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const looger = require('./app/helpers/looger');
 const morgan = require('morgan');
 const cors = require('cors');
 
@@ -17,10 +18,10 @@ app.use(morgan('dev'));
 
 dbConnect();
 app.listen(PORT, () => {
-    console.log('API listen with port',PORT);
+    looger.info('API listen with port',this.PORT);
 });
 
 io.on('connection', (socket) => {
-    console.log('Alguien se ha conectado al Sockets');
+    looger.info('Alguien se ha conectado al Sockets', socket);
 })
 

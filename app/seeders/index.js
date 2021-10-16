@@ -14,6 +14,7 @@ loadSeeder = async () => {
     MenuSeeder.createMenuSystem();
     RoleSeeder.createRoleSystem();
     PeopleSeeder.createPeopleSystem();
+    UserSeeder.createUserSystem();
 }
 
 loadSeeder();

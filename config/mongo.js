@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const looger = require('../app/helpers/looger');
 
 const dbConnect = () => {
     const DB_HOST = process.env.DB_HOST;
@@ -9,15 +10,15 @@ const dbConnect = () => {
         useUnifiedTopology: true
     }, err => {
         if(err) {
-            console.log('****** Conexion Errada *******');
+            looger.info('****** Conexion Errada *******');
             process.exit(1);
         }else{
-            console.log('****** Conexion Exitosa *******');
+            looger.info('****** Conexion Exitosa *******');
         }
     },
         process.on('signup', () => {
             mongoose.connection.close(()=> {
-                console.log('DB is Closed');
+                looger.info('DB is Closed');
                 process.exit(0);
             })
         })

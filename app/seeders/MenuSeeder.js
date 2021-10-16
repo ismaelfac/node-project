@@ -16,6 +16,7 @@ const createMenuSystem = async () => {
                 isActive: item.isActive
             });
             newMenus.save();
+            
         });       
     } catch(e){
         httpError(res, e)  
