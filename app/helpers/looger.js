@@ -5,8 +5,8 @@ module.exports = createLogger({
     format: format.combine(
         format.simple(),
         format.colorize(),
-        format.timestamp(),
-        format.printf(info=> `[${info.timestamp}] ${info.level} ${info.message }`)
+        format.timestamp({ format: 'YYYY/MM/DD HH:mm:ss' }),
+        format.printf(info=> `[${info.timestamp}]-${info.level}-${info.message }`)
     ),
     transports: [
         new transports.File({

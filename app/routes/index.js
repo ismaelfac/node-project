@@ -1,4 +1,5 @@
 const express = require('express');
+const looger = require('../helpers/looger');
 const router = express.Router();
 const fs = require('fs');
 
@@ -12,7 +13,7 @@ fs.readdirSync(pathRouter).filter((file) => {
     const skip = ['index'].includes(fileWithOutExt);
     if(!skip) {
         router.use(`/${fileWithOutExt}`, require(`./${fileWithOutExt}`)); //TODO: localhost/moduloName
-        console.log('CARGA DE RUTA--->',fileWithOutExt);
+        looger.info(`CARGANDO RUTA---> ${fileWithOutExt}`,);
     }
 });
 
