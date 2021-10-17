@@ -1,4 +1,3 @@
-const { httpError } = require('../helpers/handleError');
 const looger = require('../helpers/looger');
 const MenuSchema  = require('../models/menus');
 const menusJson = require('../json/menus.json');
@@ -20,11 +19,11 @@ const createMenuSystem = async () => {
             looger.info('Cargando datos de Menus')
         });       
     } catch(e){
-        httpError(res, e)  
+        looger.info('Error cargando User',e);
     }
 }
 
-const dropMenusSystem = async (req, res) => {
+const dropMenusSystem = async () => {
 
 }
 module.exports = { createMenuSystem, dropMenusSystem }
