@@ -34,5 +34,14 @@
         "avatar": "/assets/img/01.jpg",
         "person_id": 4,
         "is_active": true
+    },
+    {
+        "roles": "JURIDICA",
+        "name": "XYZ S.A.S",
+        "email": "info@xyz.com",
+        "password": "123",
+        "avatar": "/assets/img/01.jpg",
+        "person_id": 5,
+        "is_active": true
     }
 ]

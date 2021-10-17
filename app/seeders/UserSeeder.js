@@ -6,27 +6,33 @@ const RoleJson = require('../json/roles.json')
 
 const createUserSystem = async () => {
     try {        
-        UserJson.map(item => {
-            let peopleFound = PeopleSchema.find({email: { $in: item.email}});
-            console.log27gjknj8hc3g8x7cqfvjbwpd6
-            if(peopleFound){
-                const newUser = new UsersSchema({
-                    name: item.name, 
-                    email: item.email, 
-                    password: '123',
+        UserJson.map(async (item) => {
+            const peopleFound = await FilterPeopleWithStateActive(item.email);
+            console.log(peopleFound[0].email)
+            if(peopleFound[0]){
+                const saveUser = UsersSchema.create({ 
+                    personId: peopleFound[0]._id,
+                    name: (peopleFound[0].business_name ? peopleFound[0].business_name : `${peopleFound[0].last_name} ${peopleFound[0].first_name}`),
+                    email: peopleFound[0].email,
+                    password: await UsersSchema.encryptPassword(item.password),
                     roles: item.roles,
                     avatar: item.avatar,
                     isActive: item.isActive
                 });
-                newUser.save();
-            }            
-            looger.info('Cargando datos de User',newUser.name);
+                console.log(`Usuario ${saveUser} Creado`);
+            }
         });       
     } catch(e){
         looger.info('Error cargando User',e);
     }
 }
-
+const FilterPeopleWithStateActive = async (email) => {
+    return await PeopleSchema.aggregate([
+        {
+            $match: { email: email }
+        }
+    ]);
+}
 const dropUserSystem = async (req, res) => {
 
 }

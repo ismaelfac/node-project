@@ -3,6 +3,10 @@ const bcrypt = require('bcryptjs');
 
 const UsersSchema = new mongoose.Schema(
     {
+        personId: {
+            type: mongoose.Types.ObjectId, 
+            ref: "people"
+        },
         name: {
             type: String,
             require: true,
