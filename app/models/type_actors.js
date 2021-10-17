@@ -5,6 +5,10 @@ const TypeActorsSchema = new mongoose.Schema(
         nameActor: {
             type: String,
             require: true,
+        },
+        isActive: {
+            type: Boolean,
+            require: true
         }
     },
     {

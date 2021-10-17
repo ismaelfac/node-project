@@ -8,6 +8,7 @@ const MenuSeeder = require('./MenuSeeder');
 const RoleSeeder = require('./RolesSeeder');
 const PeopleSeeder = require('./PeopleSeeder');
 const UserSeeder = require('./UserSeeder');
+const TypeActorSeeder = require('./TypeActorSeeder');
 
 //**Cargar del Sistema */
 loadSeeder = async () => {
@@ -15,7 +16,8 @@ loadSeeder = async () => {
     //await MenuSeeder.createMenuSystem();
     //await RoleSeeder.createRoleSystem();
     //await PeopleSeeder.createPeopleSystem();
-    await UserSeeder.createUserSystem();
+    //await UserSeeder.createUserSystem();
+    await TypeActorSeeder.createTypeActorsSystem();
     looger.info('Inyeccion de Seeders finalizada')
 }
 

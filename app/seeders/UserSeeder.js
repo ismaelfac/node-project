@@ -8,7 +8,6 @@ const createUserSystem = async () => {
     try {        
         UserJson.map(async (item) => {
             const peopleFound = await FilterPeopleWithStateActive(item.email);
-            console.log(peopleFound[0].email)
             if(peopleFound[0]){
                 const saveUser = UsersSchema.create({ 
                     personId: peopleFound[0]._id,

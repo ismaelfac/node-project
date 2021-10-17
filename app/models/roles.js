@@ -14,7 +14,7 @@ const RoleSchema = new mongoose.Schema(
         isActive: {
             type: Boolean,
             require: true
-        },
+        }
     },
     {
         timestamps: true,

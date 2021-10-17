@@ -1,0 +1,22 @@
+[
+    {
+        "nameActor": "ARRENDATARIO",
+        "isActive":true
+    },
+    {
+        "nameActor": "DEUDOR",
+        "isActive": true
+    },
+    {
+        "nameActor": "PROPIETARIO",        
+        "isActive": true
+    },
+    {
+        "nameActor": "USUFRUCTUARIO",        
+        "isActive": true
+    },
+    {
+        "nameActor": "COMODATARIO",        
+        "isActive": true
+    }
+]
