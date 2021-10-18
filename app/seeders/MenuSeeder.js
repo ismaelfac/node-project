@@ -8,6 +8,7 @@ const createMenuSystem = async () => {
             const newMenus = new MenuSchema({
                 names: item.names,
                 description: item.description,
+                methods: item.methods,
                 level: item.level,
                 order: item.order,
                 parent: item.parent,
@@ -16,7 +17,7 @@ const createMenuSystem = async () => {
                 isActive: item.isActive
             });
             newMenus.save();
-            looger.info('Cargando datos de Menus')
+            looger.info(`Cargando datos de Menus ${newMenus.names}`);
         });       
     } catch(e){
         looger.info('Error cargando User',e);

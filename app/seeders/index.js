@@ -16,7 +16,7 @@ loadSeeder = async () => {
     looger.info('Cargando Seeders...')
     //await MenuSeeder.createMenuSystem();
     //await RoleSeeder.createRoleSystem();
-    //await MenuRolesSeeder.createMenuRolesSystem();
+    await MenuRolesSeeder.createMenuRolesSystem();
     //await PeopleSeeder.createPeopleSystem();
     //await UserSeeder.createUserSystem();
     //await TypeActorSeeder.createTypeActorsSystem();

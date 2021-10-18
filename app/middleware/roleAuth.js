@@ -5,13 +5,14 @@ const MenuSchema  = require('../models/menus');
 const RoleSchema  = require('../models/roles');
 const MenuRoleSchema  = require('../models/menu_roles');
 
-const checkRoleAuth = (roles) => async (req, res, next) => {
+const checkRoleAuth = () => async (req, res, next) => {
     try {
         const token = req.body.token || req.query.token || req.headers.authorization.split(' ')[1];
         const tokenData = await verifyToken(token);
         const userData = await userModel.findById(tokenData.id);
         const rolesFind = await findMenuRoleWithPermissionWithStateActive(userData.roles, req.baseUrl, req.method);
-        if ([].concat(roles).includes(userData.roles)) {
+        console.log('rolesFind', rolesFind);
+        if (rolesFind) {
             looger.info(`role: ${JSON.stringify(userData.roles)} - ${req.baseUrl}`)
             next()
         }else {
@@ -24,19 +25,23 @@ const checkRoleAuth = (roles) => async (req, res, next) => {
 }
 const findMenuRoleWithPermissionWithStateActive = async (roleUser, baseUrl, method) => {
     console.log(`role del usuario ${roleUser} - url a visitar ${baseUrl} con el metodo ${method}`);
-    const menuId = MenuSchema.aggregate([
+    var baseResult = baseUrl.split("/api/1.0/");
+    const menuId = await MenuSchema.aggregate([
         {
-            $match: {names: baseUrl }
+            $match: {names: baseResult[1] }
         }
     ])
-    const roleId = RoleSchema.aggregate([
+    const roleId = await RoleSchema.aggregate([
         {
             $match: {name: roleUser }
         }
     ])
     return await MenuRoleSchema.aggregate([
         {
-            $match: {menuId: menuId}
+            $match: {menuId: {$eq: menuId[0]._id}}
+        },
+        {
+            $match: { roleId: {$eq: roleId[0]._id}}
         }
     ])
 }

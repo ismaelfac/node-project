@@ -11,6 +11,10 @@ const MenuSchema = new mongoose.Schema(
             type: String,
             require: true
         },
+        methods: {
+            type: String,
+            require: true
+        },
         level: {
             type: Number,
             require: true,
@@ -22,8 +26,7 @@ const MenuSchema = new mongoose.Schema(
             default: 0
         },
         parent: {
-            type: Number,
-            require: true,
+            type: mongoose.Types.ObjectId, 
             default: 0
         },
         link: {
