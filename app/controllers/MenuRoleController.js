@@ -1,10 +1,9 @@
 const { httpError } = require('../helpers/handleError');
-const RoleSchema  = require('../models/roles');
+const MenuRoleSchema  = require('../models/menu_roles');
 
 const index = async (req, res) => {
     try {
-        const ListAll = await RoleSchema.find({})
-        res.send({ data: ListAll })
+        res.send(await MenuRoleSchema.find({isActive: true}).populate({path:"roles", select: 'name'}));
     } catch (e) {
         httpError(res, e)
     } 
@@ -12,7 +11,7 @@ const index = async (req, res) => {
 
 const getItem = async (req, res) => {
     try {
-        const ListAll = await RoleSchema.find({})
+        const ListAll = await MenuRoleSchema.find({})
         res.send({ data: ListAll })
     } catch (e) {
         httpError(res, e)
@@ -22,7 +21,7 @@ const getItem = async (req, res) => {
 const createdItem = async (req, res) => {
     try {
         const { name } = req.body;
-        const resDetail = await RoleSchema.create({
+        const resDetail = await MenuRoleSchema.create({
             name
         })
         res.status(201).send({ data: resDetail })
@@ -33,7 +32,7 @@ const createdItem = async (req, res) => {
 
 const updatedItem = async (req, res) => {
     try {
-        const updateRole = await RoleSchema.findByIdAndUpdate(req.params.id, req.body, {
+        const updateRole = await MenuRoleSchema.findByIdAndUpdate(req.params.id, req.body, {
             new: true
         })
         res.status(200).send(updateRole)
@@ -44,7 +43,7 @@ const updatedItem = async (req, res) => {
 
 const deletedItem = async (req, res) => {
     try {
-        const deleteRole = await RoleSchema.findByIdAndDelete(req.params.id);
+        const deleteRole = await MenuRoleSchema.findByIdAndDelete(req.params.id);
         res.status(204).send(deleteRole);
     } catch (e) {
         httpError(res, e)

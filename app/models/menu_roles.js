@@ -12,6 +12,7 @@ const MenuRolesSchema = new mongoose.Schema(
         },
         isActive: {
             type: Boolean,
+            default: false,
             require: true
         },
     },

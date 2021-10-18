@@ -5,7 +5,6 @@ const PermissionsSchema = require('../models/permissions');
 
 const index = async (req, res) => {
     try {
-        console.log(req.method);
         const ListAll = await RolePermissionsSchema.find({isActive: true}).populate({path:"roles", select: 'name'});
         res.send({ data: ListAll })
     } catch (e) {
