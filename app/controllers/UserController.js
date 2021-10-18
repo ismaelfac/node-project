@@ -3,7 +3,7 @@ const UsersSchema  = require('../models/users');
 
 const index = async (req, res) => {
     try {
-        res.send(await UsersSchema.find({isActive: true}));
+        res.send(await UsersSchema.find());
     } catch (e) {
         httpError(res, e)
     } 

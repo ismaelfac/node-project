@@ -5,8 +5,7 @@
         "email": "infobd@aliadosinmobiliariossa.com",
         "password": "BrwQ12-123",
         "avatar": "/assets/img/01.jpg",
-        "person_id": 1,
-        "is_active": true
+        "isActive": true
     },
     {
         "roles": "ADMINISTRADOR",
@@ -14,8 +13,7 @@
         "email": "vdelassalas@aliadosinmobiliariossa.com",
         "password": "123",
         "avatar": "/assets/img/01.jpg",
-        "person_id": 2,
-        "is_active": true
+        "isActive": true
     },
     {
         "roles": "ASESOR",
@@ -23,8 +21,7 @@
         "email": "larroyo@aliadosinmobiliariossa.com",
         "password": "123",
         "avatar": "/assets/img/01.jpg",
-        "person_id": 3,
-        "is_active": true
+        "isActive": true
     },
     {
         "roles": "JURIDICA",
@@ -32,8 +29,7 @@
         "email": "martaleal@aliadosinmobiliariossa.com",
         "password": "123",
         "avatar": "/assets/img/01.jpg",
-        "person_id": 4,
-        "is_active": true
+        "isActive": true
     },
     {
         "roles": "JURIDICA",
@@ -41,7 +37,6 @@
         "email": "info@xyz.com",
         "password": "123",
         "avatar": "/assets/img/01.jpg",
-        "person_id": 5,
-        "is_active": true
+        "isActive": true
     }
 ]
