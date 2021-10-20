@@ -5,7 +5,7 @@
         "methods":"GET",
         "level": 1,
         "order": 0,
-        "parent": 0,
+        "parent": "",
         "link": "/dashboard",
         "icon": "",
         "isActive": true
@@ -16,7 +16,7 @@
         "methods":"GET",
         "level": 1,
         "order": 0,
-        "parent": 0,
+        "parent": "dashboard",
         "link": "/dashboard/settings",
         "icon": "",
         "isActive": true
@@ -27,7 +27,7 @@
         "methods":"GET",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "settings",
         "link": "/users",
         "icon": "",
         "isActive": true
@@ -38,7 +38,7 @@
         "methods":"POST",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "users",
         "link": "/users",
         "icon": "",
         "isActive": true
@@ -48,7 +48,7 @@
         "methods":"GET",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "users",
         "link": "/users/:id",
         "icon": "",
         "isActive": true
@@ -59,7 +59,7 @@
         "methods":"PUT",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "users",
         "link": "/users/:id",
         "icon": "",
         "isActive": true
@@ -70,7 +70,7 @@
         "methods":"DELETE",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "users",
         "link": "/users/:id",
         "icon": "",
         "isActive": true
@@ -81,7 +81,7 @@
         "methods":"GET",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "settings",
         "link": "/roles",
         "icon": "",
         "isActive": true
@@ -92,7 +92,7 @@
         "methods":"POST",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "roles",
         "link": "/roles",
         "icon": "",
         "isActive": true
@@ -102,7 +102,7 @@
         "methods":"GET",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "roles",
         "link": "/roles/:id",
         "icon": "",
         "isActive": true
@@ -113,7 +113,7 @@
         "methods":"PUT",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "roles",
         "link": "/roles/:id",
         "icon": "",
         "isActive": true
@@ -124,7 +124,7 @@
         "methods":"DELETE",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "roles",
         "link": "/roles/:id",
         "icon": "",
         "isActive": true
@@ -135,7 +135,7 @@
         "methods":"GET",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "settings",
         "link": "/menu_roles",
         "icon": "",
         "isActive": true
@@ -146,7 +146,7 @@
         "methods":"POST",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "menu_roles",
         "link": "/menu_roles",
         "icon": "",
         "isActive": true
@@ -156,7 +156,7 @@
         "methods":"GET",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "menu_roles",
         "link": "/menu_roles/:id",
         "icon": "",
         "isActive": true
@@ -167,7 +167,7 @@
         "methods":"PUT",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "menu_roles",
         "link": "/menu_roles/:id",
         "icon": "",
         "isActive": true
@@ -178,7 +178,7 @@
         "methods":"DELETE",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "menu_roles",
         "link": "/menu_roles/:id",
         "icon": "",
         "isActive": true
@@ -189,7 +189,7 @@
         "methods":"GET",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "settings",
         "link": "/people",
         "icon": "",
         "isActive": true
@@ -200,7 +200,7 @@
         "methods":"POST",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "people",
         "link": "/people",
         "icon": "",
         "isActive": true
@@ -210,7 +210,7 @@
         "methods":"GET",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "people",
         "link": "/people/:id",
         "icon": "",
         "isActive": true
@@ -221,7 +221,7 @@
         "methods":"PUT",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "people",
         "link": "/people/:id",
         "icon": "",
         "isActive": true
@@ -232,7 +232,7 @@
         "methods":"DELETE",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "people",
         "link": "/people/:id",
         "icon": "",
         "isActive": true
@@ -243,7 +243,7 @@
         "methods":"GET",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "settings",
         "link": "/type_actors",
         "icon": "",
         "isActive": true
@@ -254,7 +254,7 @@
         "methods":"POST",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "type_actors",
         "link": "/type_actors",
         "icon": "",
         "isActive": true
@@ -264,7 +264,7 @@
         "methods":"GET",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "type_actors",
         "link": "/type_actors/:id",
         "icon": "",
         "isActive": true
@@ -275,7 +275,7 @@
         "methods":"PUT",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "type_actors",
         "link": "/type_actors/:id",
         "icon": "",
         "isActive": true
@@ -286,7 +286,7 @@
         "methods":"DELETE",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "type_actors",
         "link": "/type_actors/:id",
         "icon": "",
         "isActive": true
@@ -297,7 +297,7 @@
         "methods":"GET",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "settings",
         "link": "/menus",
         "icon": "",
         "isActive": true
@@ -308,7 +308,7 @@
         "methods":"POST",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "menus",
         "link": "/menus",
         "icon": "",
         "isActive": true
@@ -318,7 +318,7 @@
         "methods":"GET",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "menus",
         "link": "/menus/:id",
         "icon": "",
         "isActive": true
@@ -329,7 +329,7 @@
         "methods":"PUT",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "menus",
         "link": "/menus/:id",
         "icon": "",
         "isActive": true
@@ -340,7 +340,7 @@
         "methods":"DELETE",
         "level": 2,
         "order": 0,
-        "parent": 0,
+        "parent": "menus",
         "link": "/menus/:id",
         "icon": "",
         "isActive": true

@@ -26,8 +26,7 @@ const MenuSchema = new mongoose.Schema(
             default: 0
         },
         parent: {
-            type: mongoose.Types.ObjectId, 
-            default: 0
+            type: String,
         },
         link: {
             type: String,

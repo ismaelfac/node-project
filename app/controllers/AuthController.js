@@ -1,13 +1,16 @@
 const { httpError } = require('../helpers/handleError');
 const { tokenSing } = require('../helpers/generateToken');
+const looger = require('../helpers/looger');
 const userModel  = require('../models/users');
 
 const signin = async (req, res) => {
     try {
         const { email, password } = req.body;
+        looger.info(email, password)
         const user = await userModel.findOne({email});
+        console.log(user)
         if(!user){
-            res.status(404).send({error: "User not found"})
+            res.status(404).send({error: "User not found!"})
         }else{
             const comparePassword = await userModel.comparePassword(password, user.password);
             if(!comparePassword){
