@@ -1,0 +1,53 @@
+[
+    {
+        "contractNum": "256132",
+        "name": "Contracto de Administracion Sin Administracion",
+        "asegurable": "",
+        "domus": "256031",
+        "cannonLease": "1450000",
+        "adminValue": "225000",
+        "contractPeriod": "6",
+        "increment": "15",
+        "contractRights": "7",
+        "deliveryDate": "30/12/2022",
+        "gracePeriod": "60",
+        "clause": "El Arrendatario solicita una prologa de contrato por un año mas",
+        "isActive": true,
+        "real_estate_data": "",
+        "userCreateContractId": ""
+    },
+    {
+        "contractNum": "256132",
+        "name": "Contracto de Administracion Con Administracion",
+        "asegurable": "",
+        "domus": "255050",
+        "cannonLease": "1450000",
+        "adminValue": "",
+        "contractPeriod": "24",
+        "increment": "8",
+        "contractRights": "4",
+        "deliveryDate": "30/08/2023",
+        "gracePeriod": "0",
+        "clause": "",
+        "isActive": true,
+        "real_estate_data": "",
+        "userCreateContractId": ""
+    },
+    {
+        "contractNum": "256132",
+        "name": "Contracto de Administracion Con Administracion",
+        "asegurable": "",
+        "domus": "",
+        "cannonLease": "1450000",
+        "adminValue": "180000",
+        "contractPeriod": "36",
+        "increment": "6",
+        "contractRights": "8",
+        "deliveryDate": "25/07/2025",
+        "gracePeriod": "0",
+        "clause": "",
+        "isActive": true,
+        "real_estate_data": "",
+        "userCreateContractId": ""
+    }
+]

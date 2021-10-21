@@ -21,11 +21,10 @@ const RealEstateData = new mongoose.Schema(
             default: [],
             index: true
         },
-        cannonLease: {
-            type: String
-        },
-        adminValue: {
-            type: String
+        isActive: {
+            type: Boolean,
+            default: false,
+            index: true
         }
     },
     {

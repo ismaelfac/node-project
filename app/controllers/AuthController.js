@@ -1,6 +1,7 @@
 const { httpError } = require('../helpers/handleError');
 const { tokenSing } = require('../helpers/generateToken');
 const looger = require('../helpers/looger');
+const jwt = require("jsonwebtoken");
 const userModel  = require('../models/users');
 
 const signin = async (req, res) => {
@@ -27,7 +28,7 @@ const signin = async (req, res) => {
 
 const signup = async (req, res) => {
     try {
-        res.send('signup')
+        jwt.destroy(token)
     } catch (e) {
         httpError(res, e)
     }

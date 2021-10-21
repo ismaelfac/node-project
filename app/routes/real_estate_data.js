@@ -4,10 +4,10 @@ const { index, getItem, createdItem, updatedItem, deletedItem } = require('../co
 const { checkAuth } = require('../middleware/authjwt');
 const { checkRoleAuth } = require('../middleware/roleAuth');
 
-router.get('/', [checkAuth, checkRoleAuth(['ADMIN', 'JURIDICA', 'ASESOR'])], index); //TODO: localhost/users/ ---> lista 
-router.get('/:id', [checkAuth, checkRoleAuth(['ADMIN', 'JURIDICA', 'ASESOR'])], getItem); //TODO: localhost/users/:id ---> DETALLE 
-router.post('/', [checkAuth, checkRoleAuth(['ADMIN', 'JURIDICA', 'ASESOR'])], createdItem); //TODO: localhost/users/ ---> lista 
-router.patch('/:id', [checkAuth, checkRoleAuth(['ADMIN', 'JURIDICA', 'ASESOR'])], updatedItem); //TODO: localhost/users/ ---> lista 
-router.delete('/:id', [checkAuth, checkRoleAuth(['ADMIN'])], deletedItem); //TODO: localhost/users/ ---> lista 
+router.get('/', [checkAuth, checkRoleAuth()], index); //TODO: localhost/users/ ---> lista 
+router.get('/:id', [checkAuth, checkRoleAuth()], getItem); //TODO: localhost/users/:id ---> DETALLE 
+router.post('/', [checkAuth, checkRoleAuth()], createdItem); //TODO: localhost/users/ ---> lista 
+router.patch('/:id', [checkAuth, checkRoleAuth()], updatedItem); //TODO: localhost/users/ ---> lista 
+router.delete('/:id', [checkAuth, checkRoleAuth()], deletedItem); //TODO: localhost/users/ ---> lista 
 //NTGTH-VMP1E-AXQ8W-R4MZJ
 module.exports = router;
