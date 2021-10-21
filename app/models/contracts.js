@@ -50,7 +50,7 @@ const ContractsSchema = new mongoose.Schema(
         },
         real_estate_data: { 
             type: mongoose.Types.ObjectId, 
-            ref: "real_estate_data" 
+            ref: "real_estate_datas" 
         },
         userCreateContractId: {
             type: mongoose.Types.ObjectId, 

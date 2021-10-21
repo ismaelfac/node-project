@@ -3,7 +3,7 @@ const ContractsSchema  = require('../models/contracts');
 
 const index = async (req, res) => {
     try {
-        res.send(await ContractsSchema.find({isActive: true}).populate({path:"real_estate_data", select: 'address'}));
+        res.send(await ContractsSchema.find({isActive: true}).populate({path:"real_estate_datas", select: 'address'}));
     } catch (e) {
         httpError(res, e)
     } 

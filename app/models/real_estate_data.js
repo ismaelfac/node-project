@@ -34,4 +34,4 @@ const RealEstateData = new mongoose.Schema(
 )
 
 
-module.exports = mongoose.model('real_estate_data', RealEstateData)
+module.exports = mongoose.model('real_estate_datas', RealEstateData)
