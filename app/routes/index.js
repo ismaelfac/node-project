@@ -1,4 +1,5 @@
 const express = require('express');
+const { verifyToken } = require('../helpers/generateToken');
 const looger = require('../helpers/looger');
 const router = express.Router();
 const fs = require('fs');
@@ -17,9 +18,10 @@ fs.readdirSync(pathRouter).filter((file) => {
     }
 });
 
-router.get('*', (req, res) => {
-    res.status(404);
-    res.send({error: 'Not found'});
+router.get('*', async (req, res) => {
+    const tokenData = await verifyToken(req.body.token);
+    looger.info(`Not found Route --- host: ${req.headers.host} peticion usuario: ${JSON.stringify(tokenData.id)}`);
+    res.status(404).send({error: 'Not found route'});
 });
 
 module.exports = router;

@@ -1,0 +1,23 @@
+[
+    {
+        "propertyType": "APARTAMENTO",
+        "address": "Cll 92 # 59 - 60 APTO 7A",
+        "garages": ["7A"],
+        "useful_room": ["1"],
+        "isActive": true
+    },
+    {
+        "propertyType": "CASA",
+        "address": "Cll 82 # 60 - 110 APTO 1",
+        "garages": ["1A"],
+        "useful_room": ["1"],
+        "isActive": true
+    },
+    {
+        "propertyType": "CASA",
+        "address": "Cll 88 # 70 - 180",
+        "garages": ["1A"],
+        "useful_room": ["1"],
+        "isActive": true
+    }
+]

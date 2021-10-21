@@ -21,11 +21,10 @@ const RealEstateData = new mongoose.Schema(
             default: [],
             index: true
         },
-        cannonLease: {
-            type: String
-        },
-        adminValue: {
-            type: String
+        isActive: {
+            type: Boolean,
+            default: false,
+            index: true
         }
     },
     {
@@ -35,4 +34,4 @@ const RealEstateData = new mongoose.Schema(
 )
 
 
-module.exports = mongoose.model('real_estate_data', RealEstateData)
+module.exports = mongoose.model('real_estate_datas', RealEstateData)

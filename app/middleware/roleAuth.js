@@ -11,8 +11,7 @@ const checkRoleAuth = () => async (req, res, next) => {
         const tokenData = await verifyToken(token);
         const userData = await userModel.findById(tokenData.id);
         const rolesFind = await findMenuRoleWithPermissionWithStateActive(userData.roles, req.baseUrl, req.method);
-        console.log('rolesFind', rolesFind);
-        if (rolesFind) {
+        if (rolesFind[0].isActive) {
             looger.info(`role: ${JSON.stringify(userData.roles)} - ${req.baseUrl}`)
             next()
         }else {

@@ -1,9 +1,11 @@
 const { httpError } = require('../helpers/handleError');
+const MenuSchema  = require('../models/menus');
+const RoleSchema  = require('../models/roles');
 const MenuRoleSchema  = require('../models/menu_roles');
 
 const index = async (req, res) => {
     try {
-        res.send(await MenuRoleSchema.find({isActive: true}).populate({path:"roles", select: 'name'}));
+        res.send(await MenuSchema.find().select(['names', 'description', 'link', 'methods', 'parent', 'order', 'level']));
     } catch (e) {
         httpError(res, e)
     } 
