@@ -1,9 +1,63 @@
 const { httpError } = require('../helpers/handleError');
+const looger = require('../helpers/looger');
 const ContractsSchema  = require('../models/contracts');
+const ContractActorsSchema  = require('../models/contract_actors');
 
 const index = async (req, res) => {
     try {
-        res.send(await ContractsSchema.find({isActive: true}).populate({path:"real_estate_datas", select: 'address'}));
+        const contracts = await ContractsSchema.aggregate([
+            {
+                $match: {
+                    isActive: true
+                }
+            },
+            {
+                $lookup: {
+                    from: 'real_estate_datas',
+                    localField: 'real_estate_data',
+                    foreignField: '_id',
+                    as: 'real_estate_data'
+                }
+            },
+            { $unwind: '$real_estate_data'},
+            {
+                $lookup: {
+                    from: 'users',
+                    localField: 'adviser',
+                    foreignField: '_id',
+                    as: 'adviser'
+                }
+            },
+            { $unwind: '$adviser'},
+            {
+                $lookup: {
+                    from: 'contract_actors',
+                    as: 'contractActors',
+                    let: {
+                        id: '$_id', 
+                    },
+                    pipeline: [
+                        {    
+                            $match: {
+                                $expr: { $eq: ['$contractId', '$$id']}
+                            }
+                        },
+                        {
+                            $lookup: {
+                                from: 'peoples',
+                                localField: 'peopleId',
+                                foreignField: '_id',
+                                as: 'peopleActor'
+                            }
+                        },
+                        { 
+                            $project: { 'peopleActor.last_name': 1, 'peopleActor.first_name': 1, 'peopleActor.business_name': 1 }
+                        }
+                    ]
+                },
+            }
+        ])
+        res.json({contracts});
     } catch (e) {
         httpError(res, e)
     } 

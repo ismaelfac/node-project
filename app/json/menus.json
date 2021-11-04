@@ -506,5 +506,16 @@
         "link": "/dashboard/documents_contract/:id",
         "icon": "",
         "isActive": true
+    },
+    {
+        "names": "contract_indications",
+        "description": "",
+        "methods":"GET",
+        "level": 2,
+        "order": 0,
+        "parent": "dashboard/contracts",
+        "link": "/dashboard/contracts/contract_indications",
+        "icon": "",
+        "isActive": true
     }
 ]

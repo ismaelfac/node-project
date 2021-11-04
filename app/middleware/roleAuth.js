@@ -19,7 +19,7 @@ const checkRoleAuth = () => async (req, res, next) => {
             res.status(409).send({error: 'Lo sentimos, No tienes permisos para este modulo!'});
         }
     }catch(e) {
-
+        looger.info(e);
     }
 }
 const findMenuRoleWithPermissionWithStateActive = async (roleUser, baseUrl, method) => {

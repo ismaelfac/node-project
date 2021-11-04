@@ -13,7 +13,7 @@ const checkAuth = async (req, res, next) => {
             res.status(409).send({error: 'Lo sentimos, autenticación incorrecta!'});
         }
     }catch(e) {
-
+        looger.info(e);
     }
 }
 

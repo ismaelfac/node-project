@@ -25,7 +25,7 @@ const createContractSystem = async () => {
                 clause: item.clause,
                 isActive: item.isActive,
                 real_estate_data: newRamdomRealState[i]._id,
-                userCreateContractId: newRamdonUser[i]._id
+                adviser: newRamdonUser[i]._id
             });
             newContract.save();
             looger.info('Cargando Nuevo Contrato', newContract)
