@@ -9,9 +9,7 @@ const createPeopleSystem = async () => {
             const newPeople = new PeopleSchema({
                 dni: item.dni,
                 type_dni: item.type_dni,
-                business_name: item.business_name,
-                last_name: item.last_name,
-                first_name: item.first_name,
+                names: item.names,
                 slug: '',
                 phone: item.phone,
                 landline: item.landline,

@@ -1,0 +1,43 @@
+[
+    {
+        "contractNum": "256131",
+        "typePerson": "Natural",
+        "actor": "ARRENDATARIO",
+        "dni": "900123456-7",   
+        "PeoplelegalRepresentativeDni": ""
+    },
+    {
+        "contractNum": "256131",
+        "typePerson": "Natural",
+        "actor": "DEUDOR",
+        "dni": "1140253632",   
+        "PeoplelegalRepresentativeDni": ""
+    },
+    {
+        "contractNum": "256131",
+        "typePerson": "Natural",
+        "actor": "DEUDOR",
+        "dni": "45234567",   
+        "PeoplelegalRepresentativeDni": ""
+    },
+    {
+        "contractNum": "256131",
+        "typePerson": "Juridica",
+        "dni": "8562321",
+        "actor": "PROPIETARIO",
+        "PeoplelegalRepresentativeDni": "256321895" 
+    },{
+        "contractNum": "256132",
+        "typePerson": "Juridica",
+        "actor": "ARRENDATARIO",
+        "dni": "800910207-9",   
+        "PeoplelegalRepresentativeDni": "112563156"
+    },
+    {
+        "contractNum": "256132",
+        "typePerson": "Natural",
+        "dni": "256321895",
+        "actor": "PROPIETARIO",
+        "PeoplelegalRepresentativeDni": "256321895" 
+    }
+]

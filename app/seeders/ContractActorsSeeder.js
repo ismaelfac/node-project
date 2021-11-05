@@ -3,31 +3,34 @@ const ContractActorsSchema  = require('../models/contract_actors');
 const ContractsSchema = require('../models/contracts');
 const PeopleSchema = require('../models/people');
 const TypeActorsSchema = require('../models/type_actors');
-const ContractsJson = require('../json/contracts.json');
+const ContractActorsJson = require('../json/contract_actors.json');
 
 const createContractActorSystem = async () => {
+    looger.info('json: ',ContractActorsJson)
     try {
-        await ContractsJson.map(async (item) => {
-            let i = ContractsJson.indexOf(item);
-            const ItemContractNum = await ContractsSchema.find({contractNum: item.contractNum}).limit(i);
-            const ItemPeople = await PeopleSchema.find().limit(10);
-            const ItemTypeActor = await TypeActorsSchema.find().limit(4);
-            const typePersonRandom = Math.random();
-            const newContractActor = new ContractActorsSchema({
-                contractId: ItemContractNum[0]._id,
-                peopleId: ItemPeople[i]._id,
-                actorId: ItemTypeActor[i]._id,
-                typePerson: 'Natural',
-                PeoplelegalRepresentative: ItemPeople[i+1]._id,
-            });
-            //newContractActor.save();
-            looger.info('Cargando Nuevo Actor de Contrato', newContractActor);
-            looger.info(ItemContractNum[0]._id);
-            looger.info(ItemPeople[i]._id);
-            looger.info('Actor'+ItemTypeActor[i]._id);
-            looger.info('Representante'+ItemPeople[i+1]._id);
-            looger.info('Rango Persona'+typePersonRandom);
-            looger.info('Termino el Bloque');
+        await ContractActorsJson.map(async (item) => {
+            if(item) {
+                looger.info('item: ',item);
+                const itemContractId = await ContractsSchema.find({contractNum: item.contractNum});
+                const itemPersonId = await PeopleSchema.find({dni: item.dni });
+                const itemActorId = await TypeActorsSchema.find({nameActor: item.actor});
+                const newContractActor = new ContractActorsSchema({
+                    contractId: itemContractId._id,
+                    peopleId: itemPersonId._id,
+                    actorId: itemActorId._id,
+                    typePerson: item.typePerson,
+                    PeoplelegalRepresentative: itemPersonId._id,
+                });
+                //newContractActor.save();
+                looger.info('Cargando Nuevo Actor de Contrato', item);
+                looger.info(itemContractId._id);
+                looger.info(itemPersonId._id);
+                looger.info('Actor'+itemActorId._id);
+                looger.info('Representante'+itemPersonId._id);
+                looger.info('Termino el Bloque');
+            }else{
+                looger.info('Error de carga de documento',item);
+            }
         });       
     } catch(e){
         looger.info('Error cargando Nuevo Actor Contrato',e);  

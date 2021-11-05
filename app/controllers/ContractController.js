@@ -15,7 +15,14 @@ const index = async (req, res) => {
                 from: 'real_estate_datas',
                 localField: 'real_estate_data',
                 foreignField: '_id',
-                as: 'real_estate_data'
+                as: 'real_estate_data',
+                pipeline: [
+                    {
+                        $project: {
+                            'address': 1
+                        }
+                    }
+                ]
             }
         },
         { $unwind: '$real_estate_data'},
@@ -24,7 +31,14 @@ const index = async (req, res) => {
                 from: 'users',
                 localField: 'adviser',
                 foreignField: '_id',
-                as: 'adviser'
+                as: 'adviser',
+                pipeline: [
+                    {
+                        $project: {
+                            'name': 1
+                        }
+                    }
+                ]
             }
         },
         { $unwind: '$adviser'},
@@ -57,11 +71,25 @@ const index = async (req, res) => {
                             as: 'typeActor'
                         }                        
                     },
+                    {
+                        $lookup: {
+                            from: 'peoples',
+                            localField: 'PeoplelegalRepresentative',
+                            foreignField: '_id',
+                            as: 'peopleLegalRepresentative'
+                        }
+                    },
                     { 
-                        $project: { 'peopleActor.last_name': 1, 'peopleActor.first_name': 1, 'peopleActor.business_name': 1, 'typeActor.nameActor': 1 }
+                        $project: { 
+                            'peopleActor.last_name': 1, 
+                            'peopleActor.first_name': 1, 
+                            'peopleActor.business_name': 1, 
+                            'typeActor.nameActor': 1,
+                            'peopleLegalRepresentative.last_name': 1,
+                        }
                     }
-                ]
-            }
+                ]            
+            }            
         }
     ])
 );
