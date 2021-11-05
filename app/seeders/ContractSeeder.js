@@ -35,17 +35,6 @@ const createContractSystem = async () => {
     }
 }
 
-const FilterRealStateData = async () => {
-    return await RealEstateData.findOne();
-}
-const FilterUser = async () => {
-    return await UsersSchema.aggregate([
-        {
-            $match: { isActive: true }
-        }
-    ]);
-}
-
 const dropContractSystem = async () => {
 
 }

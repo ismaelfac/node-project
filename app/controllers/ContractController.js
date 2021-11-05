@@ -74,18 +74,17 @@ const index = async (req, res) => {
                     {
                         $lookup: {
                             from: 'peoples',
-                            localField: 'PeoplelegalRepresentative',
+                            localField: 'peoplelegalRepresentative',
                             foreignField: '_id',
-                            as: 'peopleLegalRepresentative'
+                            as: 'PeopleLegalRepresentative'
                         }
                     },
                     { 
                         $project: { 
-                            'peopleActor.last_name': 1, 
-                            'peopleActor.first_name': 1, 
-                            'peopleActor.business_name': 1, 
+                            'peopleActor.names': 1,  
                             'typeActor.nameActor': 1,
-                            'peopleLegalRepresentative.last_name': 1,
+                            'PeopleLegalRepresentative.names': 1,
+                            'typePerson': 1
                         }
                     }
                 ]            

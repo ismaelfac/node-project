@@ -11,8 +11,8 @@ const PeopleSeeder = require('./PeopleSeeder');
 const UserSeeder = require('./UserSeeder');
 const TypeActorSeeder = require('./TypeActorSeeder');
 const RealStateDataSeeder = require('./RealStateDataSeeder');
-const ContractSeeder = require('./ContractSeeder');
 const ContractActorsSeeder = require('./ContractActorsSeeder');
+const ContractSeeder = require('./ContractSeeder');
 
 //**Cargar del Sistema */
 loadSeeder = async () => {

@@ -6,49 +6,29 @@ const TypeActorsSchema = require('../models/type_actors');
 const ContractActorsJson = require('../json/contract_actors.json');
 
 const createContractActorSystem = async () => {
-    looger.info('json: ',ContractActorsJson)
     try {
-        await ContractActorsJson.map(async (item) => {
-            if(item) {
-                looger.info('item: ',item);
-                const itemContractId = await ContractsSchema.find({contractNum: item.contractNum});
-                const itemPersonId = await PeopleSchema.find({dni: item.dni });
-                const itemActorId = await TypeActorsSchema.find({nameActor: item.actor});
-                const newContractActor = new ContractActorsSchema({
-                    contractId: itemContractId._id,
-                    peopleId: itemPersonId._id,
-                    actorId: itemActorId._id,
-                    typePerson: item.typePerson,
-                    PeoplelegalRepresentative: itemPersonId._id,
-                });
-                //newContractActor.save();
-                looger.info('Cargando Nuevo Actor de Contrato', item);
-                looger.info(itemContractId._id);
-                looger.info(itemPersonId._id);
-                looger.info('Actor'+itemActorId._id);
-                looger.info('Representante'+itemPersonId._id);
-                looger.info('Termino el Bloque');
-            }else{
-                looger.info('Error de carga de documento',item);
-            }
-        });       
+        ContractActorsJson.map(async(item) => {
+            const itemContractId = await ContractsSchema.find({ contractNum: item.contractNum });
+            const itemPersonId = await PeopleSchema.find({dni: item.dni });
+            const itemActorId = await TypeActorsSchema.find({nameActor: item.actor});
+            const itemPersonLegalRepresentative = await PeopleSchema.find({dni: item.peoplelegalRepresentative})
+            looger.info(itemPersonLegalRepresentative.length)
+            const newContractActor = new ContractActorsSchema({
+                contractId: itemContractId[0]._id,
+                peopleId: itemPersonId[0]._id,
+                actorId: itemActorId[0]._id,
+                typePerson: item.typePerson,
+                peoplelegalRepresentative: (itemPersonLegalRepresentative.length === 0 ? '' : itemPersonLegalRepresentative[0]._id),
+            });
+            newContractActor.save();
+            looger.info('Cargando Nuevo Actor de Contrato', newContractActor);
+            looger.info('Termino el Bloque');   
+        })      
     } catch(e){
-        looger.info('Error cargando Nuevo Actor Contrato',e);  
+        looger.info('Error cargando Autor del Contrato',e);  
     }
 }
 
-const FilterRealStateData = async () => {
-    return await RealEstateData.findOne();
-}
-const FilterUser = async () => {
-    return await UsersSchema.aggregate([
-        {
-            $match: { isActive: true }
-        }
-    ]);
-}
+const dropContractActorSystem = async () => {}
 
-const dropContractActorSystem = async () => {
-
-}
 module.exports = { createContractActorSystem, dropContractActorSystem }
