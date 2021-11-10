@@ -14,7 +14,7 @@ fs.readdirSync(pathRouter).filter((file) => {
     const skip = ['index'].includes(fileWithOutExt);
     if(!skip) {
         router.use(`/${fileWithOutExt}`, require(`./${fileWithOutExt}`)); //TODO: localhost/moduloName
-        looger.info(`CARGANDO RUTA---> ${fileWithOutExt}`,);
+        looger.info(`CARGANDO RUTA---> ${fileWithOutExt}`);
     }
 });
 

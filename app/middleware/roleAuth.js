@@ -10,20 +10,21 @@ const checkRoleAuth = () => async (req, res, next) => {
         const token = req.body.token || req.query.token || req.headers.authorization.split(' ')[1];
         const tokenData = await verifyToken(token);
         const userData = await userModel.findById(tokenData.id);
-        const rolesFind = await findMenuRoleWithPermissionWithStateActive(userData.roles, req.baseUrl, req.method);
+        looger.info(`token: ${req.body}`);
+        const rolesFind = await findMenuRoleWithPermissionWithStateActive(userData.roles, req.baseUrl);
+        looger.info('rolesFind: ',rolesFind);
         if (rolesFind[0].isActive) {
-            looger.info(`role: ${JSON.stringify(userData.roles)} - ${req.baseUrl}`)
+            looger.info(`role: ${JSON.stringify(userData.roles)} - ${req.baseUrl} with methods ${req.method}`);
             next()
         }else {
             looger.info(`sin permiso: ${JSON.stringify(userData.roles)} - ${req.baseUrl}`)
             res.status(409).send({error: 'Lo sentimos, No tienes permisos para este modulo!'});
         }
     }catch(e) {
-
+        looger.info(e);
     }
 }
-const findMenuRoleWithPermissionWithStateActive = async (roleUser, baseUrl, method) => {
-    console.log(`role del usuario ${roleUser} - url a visitar ${baseUrl} con el metodo ${method}`);
+const findMenuRoleWithPermissionWithStateActive = async (roleUser, baseUrl) => {
     var baseResult = baseUrl.split("/api/1.0/");
     const menuId = await MenuSchema.aggregate([
         {
@@ -35,6 +36,7 @@ const findMenuRoleWithPermissionWithStateActive = async (roleUser, baseUrl, meth
             $match: {name: roleUser }
         }
     ])
+    looger.info('menu y role: ',menuId,'',roleId);
     return await MenuRoleSchema.aggregate([
         {
             $match: {menuId: {$eq: menuId[0]._id}}
