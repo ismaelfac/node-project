@@ -20,9 +20,10 @@ const ContractActorsSchema = new mongoose.Schema(
             default: 'Natural',
             require: true
         },
-        PeoplelegalRepresentative: {
+        peoplelegalRepresentative: {
             type: mongoose.Types.ObjectId, 
-            ref: "people"
+            ref: "people",
+            require: false
         }
     },
     {

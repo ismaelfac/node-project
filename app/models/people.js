@@ -12,17 +12,7 @@ const PeopleSchema = new mongoose.Schema(
             require: true,
             index: true
         },
-        last_name: {
-            type: String,
-            index: true,
-            default: null
-        },
-        first_name: {
-            type: String,
-            index: true,
-            default: null
-        },
-        business_name: {
+        names: {
             type: String,
             index: true,
             default: null

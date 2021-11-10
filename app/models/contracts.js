@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 
 const ContractsSchema = new mongoose.Schema(
     {
-        contractNum: {
+        ContractType: {
             type: String,
             require: true,
             index: true
         },
-        name: {
+        contractNum: {
             type: String,
             require: true,
             index: true
@@ -25,7 +25,7 @@ const ContractsSchema = new mongoose.Schema(
         adminValue: {
             type: String
         },
-        contractPeriod: {
+        contract_period: {
             type: String
         },
         increment: {
@@ -52,7 +52,7 @@ const ContractsSchema = new mongoose.Schema(
             type: mongoose.Types.ObjectId, 
             ref: "real_estate_datas" 
         },
-        userCreateContractId: {
+        adviser: {
             type: mongoose.Types.ObjectId, 
             ref: "users"
         }

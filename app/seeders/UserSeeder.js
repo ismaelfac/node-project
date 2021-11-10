@@ -11,7 +11,7 @@ const createUserSystem = async () => {
             if(peopleFound[0]){
                 const saveUser = UsersSchema.create({ 
                     personId: peopleFound[0]._id,
-                    name: (peopleFound[0].business_name ? peopleFound[0].business_name : `${peopleFound[0].last_name} ${peopleFound[0].first_name}`),
+                    name: peopleFound[0].names,
                     email: peopleFound[0].email,
                     password: await UsersSchema.encryptPassword(item.password),
                     roles: item.roles,

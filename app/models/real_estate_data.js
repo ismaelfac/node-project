@@ -16,7 +16,7 @@ const RealEstateData = new mongoose.Schema(
             default: [],
             index: true
         },
-        useful_room: {
+        usefulRoom: {
             type: Array,
             default: [],
             index: true

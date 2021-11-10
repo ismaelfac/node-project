@@ -1,9 +1,97 @@
 const { httpError } = require('../helpers/handleError');
+const looger = require('../helpers/looger');
 const ContractsSchema  = require('../models/contracts');
 
 const index = async (req, res) => {
     try {
-        res.send(await ContractsSchema.find({isActive: true}).populate({path:"real_estate_datas", select: 'address'}));
+       res.json(await ContractsSchema.aggregate([
+        {
+            $match: {
+                isActive: true
+            }
+        },
+        {
+            $lookup: {
+                from: 'real_estate_datas',
+                localField: 'real_estate_data',
+                foreignField: '_id',
+                as: 'real_estate_data',
+                pipeline: [
+                    {
+                        $project: {
+                            'address': 1
+                        }
+                    }
+                ]
+            }
+        },
+        { $unwind: '$real_estate_data'},
+        {
+            $lookup: {
+                from: 'users',
+                localField: 'adviser',
+                foreignField: '_id',
+                as: 'adviser',
+                pipeline: [
+                    {
+                        $project: {
+                            'name': 1
+                        }
+                    }
+                ]
+            }
+        },
+        { $unwind: '$adviser'},
+        {
+            $lookup: {
+                from: 'contract_actors',
+                as: 'contractActors',
+                let: {
+                    id: '$_id', 
+                },
+                pipeline: [
+                    {    
+                        $match: {
+                            $expr: { $eq: ['$contractId', '$$id']}
+                        }
+                    },
+                    {
+                        $lookup: {
+                            from: 'peoples',
+                            localField: 'peopleId',
+                            foreignField: '_id',
+                            as: 'peopleActor'
+                        }
+                    },
+                    {
+                        $lookup: {
+                            from: 'type_actors',
+                            localField: 'actorId',
+                            foreignField: '_id',
+                            as: 'typeActor'
+                        }                        
+                    },
+                    {
+                        $lookup: {
+                            from: 'peoples',
+                            localField: 'peoplelegalRepresentative',
+                            foreignField: '_id',
+                            as: 'PeopleLegalRepresentative'
+                        }
+                    },
+                    { 
+                        $project: { 
+                            'peopleActor.names': 1,  
+                            'typeActor.nameActor': 1,
+                            'PeopleLegalRepresentative.names': 1,
+                            'typePerson': 1
+                        }
+                    }
+                ]            
+            }            
+        }
+    ])
+);
     } catch (e) {
         httpError(res, e)
     } 

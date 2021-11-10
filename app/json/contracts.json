@@ -1,6 +1,6 @@
 [
     {
-        "contractNum": "256132",
+        "contractNum": "256131",
         "name": "Contracto de Administracion Sin Administracion",
         "asegurable": "",
         "domus": "256031",
@@ -34,7 +34,7 @@
         "userCreateContractId": ""
     },
     {
-        "contractNum": "256132",
+        "contractNum": "256133",
         "name": "Contracto de Administracion Con Administracion",
         "asegurable": "",
         "domus": "",

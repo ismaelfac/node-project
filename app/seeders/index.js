@@ -11,6 +11,7 @@ const PeopleSeeder = require('./PeopleSeeder');
 const UserSeeder = require('./UserSeeder');
 const TypeActorSeeder = require('./TypeActorSeeder');
 const RealStateDataSeeder = require('./RealStateDataSeeder');
+const ContractActorsSeeder = require('./ContractActorsSeeder');
 const ContractSeeder = require('./ContractSeeder');
 
 //**Cargar del Sistema */
@@ -24,6 +25,7 @@ loadSeeder = async () => {
     //await TypeActorSeeder.createTypeActorsSystem();
     //await RealStateDataSeeder.createRealStateDataSystem();
     //await ContractSeeder.createContractSystem();
+    //await ContractActorsSeeder.createContractActorSystem();
     looger.info('Inyeccion de Seeders finalizada')
 }
 
