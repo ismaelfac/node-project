@@ -1,3 +1,4 @@
+const { getParsedCommandLineOfConfigFile } = require('typescript');
 const { httpError } = require('../helpers/handleError');
 const looger = require('../helpers/looger');
 const ContractsSchema  = require('../models/contracts');
@@ -93,9 +94,26 @@ const index = async (req, res) => {
             }
         ]);
         contracts.map(contract => {
-            this.listContracts.push()
+            let arrendatario = '';
+            let deudores = 0;
+            contract.contractActors.map(contractActor => {
+                if(contractActor.typeActor[0].nameActor === "ARRENDATARIO") { arrendatario = contractActor.peopleActor[0].names }
+            });
+            contract.contractActors.map(contractActor => {
+                if(contractActor.typeActor[0].nameActor === "DEUDOR") { deudores = deudores+1 }
+            });
+            listContracts.push(
+                { 
+                    'contractNum' : contract.contractNum,
+                    'arrendatario' : arrendatario,
+                    'deudores': deudores,
+                    'address': contract.real_estate_data.address,
+                    'state': contract.isActive,
+                    'adviser': contract.adviser.name
+                }
+            )
         })
-       res.status(200).json(contracts);
+       res.status(200).json(listContracts);
     } catch (e) {
         httpError(res, e)
     } 
