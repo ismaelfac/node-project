@@ -1,5 +1,24 @@
 [
     {
+        "dni": "00000000",
+        "type_dni": "1",
+        "names": "NA",
+        "slug": "na",
+        "phone": "",
+        "landline": "",
+        "email": "",
+        "address": "",
+        "country_id": "",
+        "departament_id": "",
+        "municipality_id": "",
+        "location_id": "",
+        "neighborhood_id": "",
+        "latitude": "",
+        "longitude": "",
+        "birthdate": "",
+        "isActive": true
+    },
+    {
         "dni": "72288959",
         "type_dni": "1",
         "names": "LASTRE ALVAREZ ISMAEL E",

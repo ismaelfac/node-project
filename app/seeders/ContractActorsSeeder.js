@@ -18,7 +18,7 @@ const createContractActorSystem = async () => {
                 peopleId: itemPersonId[0]._id,
                 actorId: itemActorId[0]._id,
                 typePerson: item.typePerson,
-                peoplelegalRepresentative: (itemPersonLegalRepresentative.length === 0 ? '' : itemPersonLegalRepresentative[0]._id),
+                peoplelegalRepresentative: (itemPersonLegalRepresentative.length === 0 ? '618928b86fe30c1ce4491562' : itemPersonLegalRepresentative[0]._id),
             });
             newContractActor.save();
             looger.info('Cargando Nuevo Actor de Contrato', newContractActor);

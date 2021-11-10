@@ -25,7 +25,7 @@ loadSeeder = async () => {
     //await TypeActorSeeder.createTypeActorsSystem();
     //await RealStateDataSeeder.createRealStateDataSystem();
     //await ContractSeeder.createContractSystem();
-    await ContractActorsSeeder.createContractActorSystem();
+    //await ContractActorsSeeder.createContractActorSystem();
     looger.info('Inyeccion de Seeders finalizada')
 }
 
