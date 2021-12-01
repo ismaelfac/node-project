@@ -1,9 +1,10 @@
 const { httpError } = require('../helpers/handleError');
+const looger = require('../helpers/looger');
 const UsersSchema  = require('../models/users');
 
 const index = async (req, res) => {
     try {
-        res.send(await UsersSchema.find());
+        res.send(await UsersSchema.find({}));
     } catch (e) {
         httpError(res, e)
     } 
@@ -18,7 +19,7 @@ const getItem = async (req, res) => {
     } 
 }
 
-const createdItem = async (req, res) => {
+const storeItem = async (req, res) => {
     try {
         const { name, email, password, roles, avatar, isActive } = req.body;
         const newUser = new UsersSchema({
@@ -70,4 +71,4 @@ const activeUser = async (req, res) => {
     }
 }
 
-module.exports = { index, getItem, createdItem, updatedItem, deletedItem, activeUser }
+module.exports = { index, getItem, storeItem, updatedItem, deletedItem, activeUser }

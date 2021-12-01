@@ -12,8 +12,7 @@ const index = async (req, res) => {
 
 const getItem = async (req, res) => {
     try {
-        const ListAll = await PeopleSchema.find({})
-        res.send({ data: ListAll })
+        res.send(PeopleSchema.findById({isActive: true}).select(['names']))
     } catch (e) {
         httpError(res, e)
     } 

@@ -3,8 +3,7 @@ const RealEstateDataSchema  = require('../models/real_estate_data')
 
 const index = async (req, res) => {
     try {
-        const ListAll = await RealEstateDataSchema.find({})
-        res.send({ data: ListAll })
+        res.send(await RealEstateDataSchema.find({}))
     } catch (e) {
         httpError(res, e)
     } 

@@ -35,6 +35,16 @@
     {
         "names": "users.create",
         "description": "",
+        "methods":"GET",
+        "level": 2,
+        "order": 0,
+        "parent": "users",
+        "link": "/dashboard/users",
+        "icon": "",
+        "isActive": true
+    },{
+        "names": "users.save",
+        "description": "",
         "methods":"POST",
         "level": 2,
         "order": 0,
