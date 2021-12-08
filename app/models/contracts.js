@@ -16,9 +16,6 @@ const ContractsSchema = new mongoose.Schema(
             type: String,
             index: true
         },
-        domus: {
-            type: String
-        },
         cannonLease: {
             type: String
         },

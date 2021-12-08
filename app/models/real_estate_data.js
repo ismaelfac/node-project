@@ -2,6 +2,9 @@ const mongoose = require('mongoose');
 
 const RealEstateData = new mongoose.Schema(
     {
+        domus: {
+            type: String
+        },
         propertyType: {
             type: String,
             require: true,
@@ -20,6 +23,11 @@ const RealEstateData = new mongoose.Schema(
             type: Array,
             default: [],
             index: true
+        },
+        state: {
+            type: String,
+            enum: ['Arrendado', 'Libre', 'Proceso', 'Revisión'],
+            default: 'Libre'
         },
         isActive: {
             type: Boolean,

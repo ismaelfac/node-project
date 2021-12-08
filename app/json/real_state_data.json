@@ -1,23 +1,83 @@
 [
     {
+        "domus": "233031",
         "propertyType": "APARTAMENTO",
         "address": "Cll 92 # 59 - 60 APTO 7A",
         "garages": ["7A"],
         "useful_room": ["1"],
+        "state": "Arrendado",
         "isActive": true
     },
     {
+        "domus": "233032",
         "propertyType": "CASA",
         "address": "Cll 82 # 60 - 110 APTO 1",
         "garages": ["1A"],
         "useful_room": ["1"],
+        "state": "Arrendado",
         "isActive": true
     },
     {
+        "domus": "233033",
         "propertyType": "CASA",
         "address": "Cll 88 # 70 - 180",
         "garages": ["1A"],
         "useful_room": ["1"],
+        "state": "Arrendado",
+        "isActive": true
+    },
+    {
+        "domus": "233034",
+        "propertyType": "BODEGA",
+        "address": "VIA 40 # 62 ENTRADA ETERNIT",
+        "garages": [],
+        "useful_room": [],
+        "state": "Libre",
+        "isActive": true
+    },
+    {
+        "domus": "233035",
+        "propertyType": "APARTAMENTO",
+        "address": "Cll 68 # 40 - 10",
+        "garages": ["1A"],
+        "useful_room": ["1"],
+        "state": "Libre",
+        "isActive": true
+    },
+    {
+        "domus": "233036",
+        "propertyType": "OFICINA",
+        "address": "Cll 78 # 13 - 12",
+        "garages": ["1A","1B"],
+        "useful_room": ["2"],
+        "state": "Libre",
+        "isActive": true
+    },
+    {
+        "domus": "233037",
+        "propertyType": "OFICINA",
+        "address": "Cll 78 # 13 - 12 OFICINA 2309",
+        "garages": ["1A","1B"],
+        "useful_room": ["2"],
+        "state": "Proceso",
+        "isActive": true
+    },
+    {
+        "domus": "233038",
+        "propertyType": "OFICINA",
+        "address": "Cll 78 # 13 - 12 OFICINA 2310",
+        "garages": ["1A","1B"],
+        "useful_room": ["2"],
+        "state": "Revisión",
+        "isActive": true
+    },
+    {
+        "domus": "233039",
+        "propertyType": "OFICINA",
+        "address": "Cll 78 # 13 - 12 OFICINA 2311",
+        "garages": ["1A","1B"],
+        "useful_room": ["2"],
+        "state": "Libre",
         "isActive": true
     }
 ]

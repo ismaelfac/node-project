@@ -3,10 +3,18 @@ const RealEstateDataSchema  = require('../models/real_estate_data')
 
 const index = async (req, res) => {
     try {
-        res.send(await RealEstateDataSchema.find({}))
+        res.send(await RealEstateDataSchema.find({}));
     } catch (e) {
         httpError(res, e)
     } 
+}
+
+const indexFreeProperty = async (req, res) => {
+    try {
+        res.send(await RealEstateDataSchema.find({state: 'Libre'}));
+    } catch (e) {
+        httpError(res, e)
+    }
 }
 
 const getItem = async (req, res) => {
@@ -39,4 +47,4 @@ const deletedItem = (req, res) => {
 }
 
 
-module.exports = module.exports = { index, getItem, createdItem, updatedItem, deletedItem }
+module.exports = module.exports = { index, indexFreeProperty, getItem, createdItem, updatedItem, deletedItem }

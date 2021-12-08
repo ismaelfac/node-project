@@ -6,10 +6,12 @@ const createRealStateDataSystem = async () => {
     try {
         await RealStateDataJson.map(item => {
             const newRealStateData = new RealEstateData({
+                domus: item.domus,
                 propertyType: item.propertyType,
                 address: item.address,
                 garages: item.garages,
                 useful_room: item.useful_room,
+                state: item.state,
                 isActive: item.isActive
             });
             newRealStateData.save();

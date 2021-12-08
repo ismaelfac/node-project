@@ -14,7 +14,6 @@ const createContractSystem = async () => {
                 contractNum: item.contractNum,
                 name: item.name,
                 asegurable: item.asegurable,
-                domus: item.domus,
                 cannonLease: item.cannonLease,
                 adminValue: item.adminValue,
                 contractPeriod: item.contractPeriod,

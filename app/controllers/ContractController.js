@@ -1,5 +1,4 @@
 const { httpError } = require('../helpers/handleError');
-const looger = require('../helpers/looger');
 const ContractsSchema  = require('../models/contracts');
 
 const index = async (req, res) => {
