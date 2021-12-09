@@ -10,6 +10,12 @@ const DocumentsContractSchema = new mongoose.Schema(
             type: String,
             require: true
         },
+        category: {
+            type: String,
+            enum: ['Sin Definir','Inmueble', 'PersonaAD', 'PersonaPUC', 'Contrato'],
+            default: 'Sin Definir',
+            require: true
+        },
         state: {
             type: Boolean,
             default: false,

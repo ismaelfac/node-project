@@ -7,6 +7,7 @@ const createTypeActorsSystem = async () => {
         await typeActorsJson.map(item => {
             const newTypeActor = new TypeActorsSchema({
                 nameActor: item.nameActor,
+                category: item.category,
                 isActive: item.isActive
             });
             newTypeActor.save();

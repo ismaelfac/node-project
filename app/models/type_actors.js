@@ -6,6 +6,12 @@ const TypeActorsSchema = new mongoose.Schema(
             type: String,
             require: true,
         },
+        category: {
+            type: String,
+            enum: ['Sin Definir','PersonaAD', 'PersonaPUC'],
+            default: 'Sin Definir',
+            require: true
+        },
         isActive: {
             type: Boolean,
             require: true

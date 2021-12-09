@@ -1,22 +1,27 @@
 [
     {
         "nameActor": "ARRENDATARIO",
+        "category": "PersonaAD",
         "isActive":true
     },
     {
         "nameActor": "DEUDOR",
+        "category": "PersonaAD",
         "isActive": true
     },
     {
-        "nameActor": "PROPIETARIO",        
+        "nameActor": "PROPIETARIO",
+        "category": "PersonaPUC",        
         "isActive": true
     },
     {
-        "nameActor": "USUFRUCTUARIO",        
+        "nameActor": "USUFRUCTUARIO",
+        "category": "PersonaPUC",        
         "isActive": true
     },
     {
-        "nameActor": "COMODATARIO",        
+        "nameActor": "COMODATARIO",
+        "category": "PersonaPUC",        
         "isActive": true
     }
 ]
