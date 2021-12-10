@@ -1,5 +1,6 @@
 const { httpError } = require('../helpers/handleError');
-const RealEstateDataSchema  = require('../models/real_estate_data')
+const RealEstateDataSchema  = require('../models/real_estate_data');
+const DocumentContractSchema  = require('../models/documents_contract');
 
 const index = async (req, res) => {
     try {
@@ -46,5 +47,13 @@ const deletedItem = (req, res) => {
     
 }
 
+const documentsEstate = async (req, res) => {
+    try {
+        res.send(await DocumentContractSchema.find({category: 'Inmueble'}));
+    } catch (e) {
+        httpError(res, e)
+    }
+}
 
-module.exports = module.exports = { index, indexFreeProperty, getItem, createdItem, updatedItem, deletedItem }
+
+module.exports = module.exports = { index, indexFreeProperty, getItem, createdItem, updatedItem, deletedItem, documentsEstate }

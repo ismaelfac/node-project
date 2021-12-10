@@ -9,5 +9,4 @@ router.get('/:id', [checkAuth, checkRoleAuth()], getItem); //TODO: localhost/use
 router.post('/', [checkAuth, checkRoleAuth()], createdItem); //TODO: localhost/users/ ---> lista 
 router.patch('/:id', [checkAuth, checkRoleAuth()],updatedItem); //TODO: localhost/users/ ---> lista 
 router.delete('/:id', [checkAuth, checkRoleAuth()], deletedItem); //TODO: localhost/users/ ---> lista 
-
 module.exports = router;
