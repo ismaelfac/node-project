@@ -6,7 +6,7 @@ const { checkRoleAuth } = require('../middleware/roleAuth');
 
 router.get('/', [checkAuth, checkRoleAuth()], index); //TODO: localhost/users/ ---> lista 
 router.get('/:id', [checkAuth, checkRoleAuth()], getItem); //TODO: localhost/users/:id ---> DETALLE 
-router.post('/', [checkAuth, checkRoleAuth()], createdItem); //TODO: localhost/users/ ---> lista 
+router.post('/', [], createdItem); //TODO: localhost/users/ ---> lista 
 router.patch('/:id', [checkAuth, checkRoleAuth()], updatedItem); //TODO: localhost/users/ ---> lista 
 router.delete('/:id', [checkAuth, checkRoleAuth()], deletedItem); //TODO: localhost/users/ ---> lista 
 

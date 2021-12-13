@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const DocumentsContractEstateSchema = new mongoose.Schema(
     {
-        contractActorsId: {
+        realEstateId: {
             type: mongoose.Types.ObjectId, 
             ref: "real_estate_data"
         },
@@ -17,7 +17,12 @@ const DocumentsContractEstateSchema = new mongoose.Schema(
             type: String,
             enum: ['Pendiente', 'Por Revision', 'Rechazado', 'Aprobado'],
             default: 'Pendiente'
-        }
+        },
+        isActive: {
+            type: Boolean,
+            require: true
+        },
+
     },
     {
         timestamps: true,

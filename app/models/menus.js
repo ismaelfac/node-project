@@ -38,7 +38,7 @@ const MenuSchema = new mongoose.Schema(
         isActive: {
             type: Boolean,
             require: true
-        },
+        }
     },
     {
         timestamps: true,
