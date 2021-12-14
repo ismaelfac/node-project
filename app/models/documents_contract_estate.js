@@ -10,8 +10,20 @@ const DocumentsContractEstateSchema = new mongoose.Schema(
             type: mongoose.Types.ObjectId, 
             ref: "documents_contract"
         },
-        files: {
-            type: Array
+        filename: {
+            type: String,
+            require: true,
+            index: true
+        },
+        description: {
+            type: String
+        },
+        destination: {
+            type: String,
+            require:true
+        },
+        size: {
+            type: String
         },
         state: {
             type: String,

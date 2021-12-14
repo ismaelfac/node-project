@@ -22,10 +22,14 @@ const getItem = async (req, res) => {
 
 const createdItem = async (req, res) => {
     try {
-        console.log(req.body)
+        const fileUploads = req.file;
         const { realEstateId, documentsContractId, state } = req.body;
-        //const { files } = req;
-        //looger.info('Entro a DocumentContractEstateSchema: ', realEstateId, documentsContractId);
+        const filename = fileUploads.originalName;
+        const description = 'Description Pdf 2';
+        const destination = fileUploads.path;
+        const size = fileUploads.size;
+        const isActive = true;
+        looger.info('Entro a DocumentContractEstateSchema: ', fileUploads);
         // const resDetail = await DocumentContractEstateSchema.create({
         //     contractActorsId, documentsContractId, files, state
         // })

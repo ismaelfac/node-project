@@ -12,7 +12,7 @@ const { dbConnect } = require('./config/mongo');
 const PORT = process.env.PORT;
 
 app.use(cors());
-app.use(express.json());
+app.use(express.urlencoded({extends: false }));
 app.use('/api/1.0', require('./app/routes'));
 app.use(morgan('dev'));
 
