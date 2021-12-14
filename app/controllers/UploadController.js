@@ -4,15 +4,15 @@ const uploads  = require('../models/uploads');
 const uploadController = async (req, res) => {
     try {
         const fileUploads = req.file;
-        console.log('fileUploads: '+fileUploads);
-        const documentContractActorId = "61532dc499a1a51448d8eabf";
+        const documentContractActorId = "";
+        const documentContractEstateId = "61532dc499a1a51448d8eabe";
         const title = fileUploads.originalName;
         const description = 'Description Pdf 2';
-        const file = fileUploads.path;
+        const destination = fileUploads.path;
         const size = fileUploads.size;
         const isActive = true;
         const resDetail = await uploads.create({
-            documentContractActorId, title, description, file, size, isActive
+            documentContractActorId, documentContractEstateId, title, description, destination, size, isActive
         })
         res.status(201).send({ data: resDetail});
     } catch (e) {

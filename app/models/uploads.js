@@ -5,7 +5,10 @@ const UploadSchema = new mongoose.Schema(
         documentContractActorId: {
             type: String
         },
-        title: {
+        documentContractEstateId: {
+            type: String
+        },
+        filename: {
             type: String,
             require: true,
             index: true
@@ -13,7 +16,7 @@ const UploadSchema = new mongoose.Schema(
         description: {
             type: String
         },
-        file: {
+        destination: {
             type: String,
             require:true
         },

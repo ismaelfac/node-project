@@ -2,7 +2,7 @@ const multer = require('multer');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, './uploads');//TODO: Imagen cruda
+        cb(null, './public/uploads');//TODO: Imagen cruda
     },
     filename: (req, file, cb) => {
         const ext = file.originalname.split('.').pop(); //TODO: archivo.pdf -> pdf
