@@ -7,9 +7,8 @@ const userModel  = require('../models/users');
 const signin = async (req, res) => {
     try {
         const { email, password } = req.body;
-        looger.info(email, password)
         const user = await userModel.findOne({email});
-        console.log(user)
+        console.log('usuario: ',user)
         if(!user){
             res.status(404).send({error: "User not found!"})
         }else{

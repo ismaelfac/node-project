@@ -5,14 +5,15 @@ const morgan = require('morgan');
 const cors = require('cors');
 
 const app = express();
-const server = require('http').Server(app);
-const io = require('socket.io')(server);
+//const server = require('http').Server(app);
+//const io = require('socket.io')(server);
 const { dbConnect } = require('./config/mongo');
 
 const PORT = process.env.PORT;
 
 app.use(cors());
-app.use(express.urlencoded({extends: false }));
+app.use(express.json());
+//app.use(express.urlencoded({extends: false }));
 app.use('/api/1.0', require('./app/routes'));
 app.use(morgan('dev'));
 
@@ -22,7 +23,7 @@ app.listen(PORT, () => {
     looger.info(`API listen with port ${ process.env.PORT }`);
 });
 
-io.on('connection', (socket) => {
+/*io.on('connection', (socket) => {
     looger.info('Alguien se ha conectado al Sockets', socket);
-})
+})*/
 

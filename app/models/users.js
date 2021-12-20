@@ -16,7 +16,6 @@ const UsersSchema = new mongoose.Schema(
             type: String,
             unique: true,
             index: true,
-            trim: true
         },
         password: {
             type: String
@@ -28,7 +27,8 @@ const UsersSchema = new mongoose.Schema(
         avatar: {
             type: String,
             trim: true,
-            required: true //Debe tener un valor
+            required: true, //Debe tener un valor
+            default: '/public/img'
         },
         isActive: {
             type: Boolean,
