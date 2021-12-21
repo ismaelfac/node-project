@@ -79,5 +79,14 @@
         "useful_room": ["2"],
         "state": "Libre",
         "isActive": true
+    },
+    {
+        "domus": "",
+        "propertyType": "APARTAMENTO",
+        "address": "Cll 86 # 62 - 119 EDIFICIO PALOMINO",
+        "garages": ["1B"],
+        "useful_room": [],
+        "state": "Libre",
+        "isActive": true
     }
 ]

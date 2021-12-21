@@ -1,14 +1,24 @@
 const { httpError } = require('../helpers/handleError');
 const looger = require('../helpers/looger');
+const DocumentContractSchema = require('../models/documents_contract');
+const RealEstateDataSchema  = require('../models/real_estate_data');
 const DocumentContractEstateSchema  = require('../models/documents_contract_estate')
 
 const index = async (req, res) => {
     try {
-        const ListAll = await DocumentContractEstateSchema.find({isActive: true}).populate({path:"real_estate_datas", select: 'address'})
+        const ListAll = await DocumentContractEstateSchema.find({_id: req.body.realEstateId}).populate({path:"real_estate_datas", select: 'address'})
         res.send({ data: ListAll })
     } catch (e) {
         httpError(res, e)
     } 
+}
+
+const getDocumentContractEstateList = async (req, res) => {
+    try {
+        res.send(await DocumentContractSchema.find({category: 'Inmueble'}).select('title'));//search contract document
+    } catch (e) {
+        httpError(res, e)
+    }
 }
 
 const getItem = async (req, res) => {

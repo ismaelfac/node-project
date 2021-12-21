@@ -2,17 +2,15 @@ const mongoose = require('mongoose');
 
 const DocumentsContractEstateSchema = new mongoose.Schema(
     {
-        realEstateId: {
-            type: mongoose.Types.ObjectId, 
-            ref: "real_estate_data"
-        },
         documentsContractId: { 
             type: mongoose.Types.ObjectId, 
             ref: "documents_contract"
         },
+        address: {
+            type: String
+        },
         filename: {
             type: String,
-            require: true,
             index: true
         },
         description: {
@@ -32,6 +30,7 @@ const DocumentsContractEstateSchema = new mongoose.Schema(
         },
         isActive: {
             type: Boolean,
+            default: false,
             require: true
         },
 
