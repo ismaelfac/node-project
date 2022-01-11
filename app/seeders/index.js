@@ -29,7 +29,7 @@ loadSeeder = async () => {
     //await ContractSeeder.createContractSystem();
     //await ContractActorsSeeder.createContractActorSystem();
     //await DocumentContractSeeder.createDocumentContractSystem();
-    //await DocumentContractActorSeeder.createDocumentContractActorSystem();
+    await DocumentContractActorSeeder.createDocumentContractActorSystem();
     looger.info('Inyeccion de Seeders finalizada')
 }
 
