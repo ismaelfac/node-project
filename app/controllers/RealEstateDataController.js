@@ -31,9 +31,10 @@ const getItem = async (req, res) => {
 
 const createdItem = async (req, res) => {
     try {
-        const { propertyType, address, garages, useful_room, cannonLease, adminValue } = req.body;
+        looger.info(req.body)
+        const { domus, propertyType, address, garages, useful_room } = req.body;
         const resDetail = await RealEstateDataSchema.create({
-            propertyType, address, garages, useful_room, cannonLease, adminValue
+            domus, propertyType, address, garages, useful_room
         })
         res.status(201).send({ data: resDetail })
     } catch (e) {
