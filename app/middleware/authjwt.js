@@ -4,6 +4,7 @@ const looger = require('../helpers/looger');
 const checkAuth = async (req, res, next) => {
     try {
         const token = req.body.token || req.query.token || req.headers.authorization.split(' ')[1];
+        looger.info('Token',token)
         const tokenData = await verifyToken(token);   
         looger.info('tokenData: ',tokenData.id)
         if (tokenData.id) {
@@ -14,7 +15,7 @@ const checkAuth = async (req, res, next) => {
             res.status(409).send({error: 'Lo sentimos, autenticación incorrecta!'});
         }
     }catch(e) {
-        looger.info(e);
+        looger.info('error desde authjwt',e);
     }
 }
 

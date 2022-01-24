@@ -51,10 +51,10 @@ const deletedItem = (req, res) => {
 
 const documentsEstate = async (req, res) => {
     try {
-        const address = 'Cll 86 # 62 - 119 EDIFICIO PALOMINO';
+        const address = 'Cll 92 # 59 - 60 APTO 7A';
         const DocumentEstate = await DocumentContractSchema.find({category: 'Inmueble'});
         const addressExist = await DocumentContractEstateSchema.find({address: DocumentEstate.address})
-        if(addressExist){
+        if(this.addressExist === this.address){
             DocumentEstate.map(async (item) => {
                 const newDocumentContractEstate = await DocumentContractEstateSchema({
                     documentsContractId: item._id,
@@ -67,9 +67,13 @@ const documentsEstate = async (req, res) => {
                 });
                 newDocumentContractEstate.save();
             });
+            const resultDocumentEstate = await DocumentContractEstateSchema.find({address: address});
+            res.status(201).send(resultDocumentEstate);
+        }else{
+            const resultDocumentEstate = await DocumentContractEstateSchema.find({address: address});
+            res.status(201).send(resultDocumentEstate);
         }
-        const resultDocumentEstate = await DocumentContractEstateSchema.find({address: address});
-        res.status(201).send(resultDocumentEstate);
+        
     } catch (e) {
         httpError(res, e)
     }
